@@ -1,0 +1,571 @@
+[
+  {
+    "col": 1,
+    "row": 1,
+    "width": 12,
+    "height": 2,
+    "children": [
+      {
+        "id": "generic-coded_text-4890863"
+      },
+      {
+        "id": "outpatient-24h-blood-pressure-monitoring/additional_data/reason_for_encounter/presenting_problem"
+      },
+      {
+        "id": "generic-rich_text-1557377"
+      },
+      {
+        "id": "generic-layout_group-3459376",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time"
+                  }
+                ]
+              },
+              {
+                "width": "50%",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-rich_text-1915425"
+      },
+      {
+        "id": "generic-layout_group-952820",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-layout_group-1239030",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "generic-time-1729748"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "generic-time-6282458"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-layout_group-1300879",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "generic-quantity-6751850"
+                              },
+                              {
+                                "id": "generic-quantity-15341"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-rich_text-1489854"
+      },
+      {
+        "id": "generic-layout_group-2017963",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-layout_group-9073681",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "generic-time-1351885"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "generic-time-8107171"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-layout_group-1947585",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "generic-quantity-6840029"
+                              },
+                              {
+                                "id": "generic-quantity-5782160"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-rich_text-4405148"
+      },
+      {
+        "id": "generic-layout_group-8728343",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "100%",
+                "children": [
+                  {
+                    "id": "generic-layout_group-3758115",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_daytime_measurements"
+                              },
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_nighttime_measurements"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/total_count_of_the_measurements"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-rich_text-44268"
+      },
+      {
+        "id": "generic-layout_group-3827627",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-layout_group-426000",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/systolic"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/diastolic"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/math_function"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/width"
+                  }
+                ]
+              },
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-notification-2730771"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-rich_text-8012334"
+      },
+      {
+        "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/rate"
+      },
+      {
+        "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/math_function"
+      },
+      {
+        "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/width"
+      },
+      {
+        "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/time"
+      },
+      {
+        "id": "generic-rich_text-5874165"
+      },
+      {
+        "id": "generic-layout_group-7264653",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-layout_group-6546487",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/systolic"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/diastolic"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/math_function"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/sleep_status"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/time"
+                  }
+                ]
+              },
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-notification-5540572"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-rich_text-5856754"
+      },
+      {
+        "id": "generic-layout_group-8647652",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "51%",
+                "children": [
+                  {
+                    "id": "generic-layout_group-5389319",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/systolic"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/diastolic"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/math_function"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/sleep_status"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/width"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/time"
+                  }
+                ]
+              },
+              {
+                "width": "46%",
+                "children": [
+                  {
+                    "id": "generic-notification-1831023"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "cols": [
+              {
+                "width": "100%",
+                "children": [
+                  {
+                    "id": "generic-spacer-9964207"
+                  },
+                  {
+                    "id": "generic-layout_group-2693497",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/nightly_blood_pressure_dipping/systolic_dip"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "generic-notification-5786029"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-spacer-1678891"
+      },
+      {
+        "id": "generic-rich_text-5177860"
+      },
+      {
+        "id": "generic-button-8204170"
+      },
+      {
+        "id": "generic-layout_group-2605866",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "100%",
+                "children": [
+                  {
+                    "id": "generic-rich_text-5511017"
+                  },
+                  {
+                    "id": "generic-layout_group-8400949",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "generic-layout_group-1359628",
+                                "rows": [
+                                  {
+                                    "cols": [
+                                      {
+                                        "width": "50%",
+                                        "children": [
+                                          {
+                                            "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/central_systolic_blood_pressure"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "width": "50%",
+                                        "children": [
+                                          {
+                                            "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/central_diastolic_blood_pressure"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "generic-spacer-1225542"
+                  },
+                  {
+                    "id": "generic-layout_group-5247211",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "width": "50%",
+                            "children": [
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/augmentation_index_at_heart_rate_75_per_minute"
+                              },
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/cardiac_output"
+                              },
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/peripheral_resistance"
+                              },
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/reflection_coefficient"
+                              },
+                              {
+                                "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/pulse_wave_velocity"
+                              }
+                            ]
+                          },
+                          {
+                            "width": "50%",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-spacer-4396796"
+      },
+      {
+        "id": "generic-rich_text-2146232"
+      }
+    ],
+    "rows": []
+  }
+]

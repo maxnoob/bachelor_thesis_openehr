@@ -1,0 +1,93 @@
+{
+  "variables": [
+    {
+      "eventDispatcher": {
+        "eventHandlerFns": {}
+      },
+      "id": "994d3501-a71a-4468-b6cc-cc6c5e098759",
+      "name": "24h_bp",
+      "mandatory": false,
+      "type": null,
+      "dependentVariables": [],
+      "source": "AQL",
+      "created": null,
+      "dependentFields": [],
+      "value": {
+        "name": "24h_blood_pressure_values"
+      }
+    },
+    {
+      "eventDispatcher": {
+        "eventHandlerFns": {}
+      },
+      "id": "470e9999-67d2-4963-bf5d-c6096a341999",
+      "name": "24h_bp_js_view",
+      "mandatory": false,
+      "type": null,
+      "dependentVariables": [],
+      "source": "AQL",
+      "created": null,
+      "dependentFields": [],
+      "value": {
+        "name": "24h_bp_js_version"
+      }
+    },
+    {
+      "eventDispatcher": {
+        "eventHandlerFns": {}
+      },
+      "id": "969d493a-140a-442c-9097-10d0324db69a",
+      "name": "awake_duration_minutes",
+      "mandatory": false,
+      "type": "number",
+      "dependentVariables": [],
+      "source": "PREDEFINED",
+      "created": null,
+      "dependentFields": [],
+      "value": null
+    },
+    {
+      "eventDispatcher": {
+        "eventHandlerFns": {}
+      },
+      "id": "50232d81-74eb-43a8-b64e-77132f48fa88",
+      "name": "awake_duration_hours",
+      "mandatory": false,
+      "type": "number",
+      "dependentVariables": [],
+      "source": "PREDEFINED",
+      "created": null,
+      "dependentFields": [],
+      "value": ""
+    },
+    {
+      "eventDispatcher": {
+        "eventHandlerFns": {}
+      },
+      "id": "7fb4a2fb-7e79-46a9-8312-b908d54d81bd",
+      "name": "asleep_duration_hours",
+      "mandatory": false,
+      "type": "number",
+      "dependentVariables": [],
+      "source": "PREDEFINED",
+      "created": null,
+      "dependentFields": [],
+      "value": null
+    },
+    {
+      "eventDispatcher": {
+        "eventHandlerFns": {}
+      },
+      "id": "d526744d-11a9-496b-803d-1cd5912fd6f2",
+      "name": "asleep_duration_minutes",
+      "mandatory": false,
+      "type": "number",
+      "dependentVariables": [],
+      "source": "PREDEFINED",
+      "created": null,
+      "dependentFields": [],
+      "value": null
+    }
+  ],
+  "externalApis": []
+}

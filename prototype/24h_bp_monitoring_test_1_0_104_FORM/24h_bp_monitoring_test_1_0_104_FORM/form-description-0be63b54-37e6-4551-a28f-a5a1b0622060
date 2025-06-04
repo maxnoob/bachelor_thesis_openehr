@@ -1,0 +1,2167 @@
+{
+  "min": 0,
+  "localizedNamesIncludeVariables": false,
+  "children": [
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_CODED_TEXT",
+      "max": 1,
+      "name": "Select",
+      "id": "generic-coded_text-6864170",
+      "formId": "generic-coded_text-6864170",
+      "alias": "Navigation-1-2",
+      "nodeId": "generic-coded_text-6864170",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {
+          "ehrFormScript": "\"console.log(\\\"Nav bar script loaded\\\");\\n\\n// set the template path for the field, where the nav bar should be. this has to be done on every page per form.\\nconst navField = 'generic-coded_text-6864170'\\n\\n// get the ids from the code section </> under \\\"Form pages\\\"\\nconst pages = [\\n  { label: \\\"24h-Blutdruck & PWA\\\", id: \\\"1cf8d383-25d3-496f-a213-e8303984fe7a\\\" },\\n  { label: \\\"Personendaten\\\", id: \\\"3bb60845-b84b-4610-83e3-7e7235bdd0a6\\\" },\\n  { label: \\\"Beurteilung\\\", id: \\\"c9545730-761b-45cb-adc4-14852aa5c005\\\" },\\n  { label: \\\"Verlauf\\\", id: \\\"0be63b54-37e6-4551-a28f-a5a1b0622060\\\"}\\n];\\n\\npages.forEach(page => {\\n  api.addFormElementInput(navField, {\\n    label: page.label,\\n    code: page.id\\n  });\\n});\\n\\napi.addListener(navField, 'CHANGE', function() {\\n    const selectedPage = api.getFieldValue(navField, undefined, undefined, undefined, false);\\n    console.log(\\\"Selected value:\\\", selectedPage);\\n    // wait for the object to be initiliazed to avoid TypeError.\\n    if (selectedPage && selectedPage.code) {\\n    api.goTo(selectedPage.code);\\n    api.setFieldValue(navField, null); // otherwise odd behaviour with selected buttons in nav bar occurs\\n  }\\n}, { onInitialValueSet: true });\""
+        },
+        "advanced": {
+          "persistentGeneric": true,
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {
+          "code": {
+            "presentation": "BUTTONGROUP",
+            "columns": 2,
+            "disabled": false,
+            "hidden": false,
+            "readonly": false
+          }
+        }
+      },
+      "datasource": {
+        "force": false,
+        "source": "",
+        "bindings": {},
+        "pathParameters": {
+          "{codeSystem}": ""
+        }
+      },
+      "localizedNames": {
+        "en": "<p>Navigation</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": [
+        {
+          "list": [],
+          "type": "CODED_TEXT",
+          "suffix": "code"
+        }
+      ]
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-4489902",
+      "formId": "generic-rich_text-4489902",
+      "alias": "Rich text-13",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<h3>Verlauf</h3>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "rmType": "GENERIC_RICH_TEXT",
+          "max": 1,
+          "name": "Rich text",
+          "id": "generic-rich_text-5165805",
+          "formId": "generic-rich_text-5165805",
+          "alias": "Rich text-17",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_12"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "<p>Designvorschlag 1 (Condensed Cards with History)</p>"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "initialActionSent": false,
+          "rmType": "GENERIC_EXTERNAL_WIDGET",
+          "id": "generic-external_widget-5368280",
+          "formId": "generic-external_widget-5368280",
+          "nodeId": "generic-external_widget-9419894",
+          "max": 1,
+          "name": "better-param-widget-1-0-4",
+          "alias": "better-param-widget-1-0-4",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "persistentGeneric": true
+            },
+            "size": {
+              "label": "COLUMN_12",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "valueMappingData": {
+            "valueMapping": {
+              "key": "|value",
+              "name": "value",
+              "isIndexLeaf": false,
+              "type": "OBJECT",
+              "children": {
+                "configuration": {
+                  "key": "|value|configuration",
+                  "name": "configuration",
+                  "isIndexLeaf": false,
+                  "type": "OBJECT",
+                  "children": {
+                    "label": {
+                      "key": "|value|configuration|label",
+                      "name": "label",
+                      "isIndexLeaf": false,
+                      "expression": "Blutdruck 24h-Mittelwerte",
+                      "type": "LEAF"
+                    },
+                    "cardType": {
+                      "key": "|value|configuration|cardType",
+                      "name": "cardType",
+                      "isIndexLeaf": false,
+                      "pathParams": {},
+                      "expression": "%p%condensed:::condensed%p%",
+                      "type": "LEAF"
+                    },
+                    "graphType": {
+                      "key": "|value|configuration|graphType",
+                      "name": "graphType",
+                      "isIndexLeaf": false,
+                      "expression": "%p%sparkline:::sparkline%p%",
+                      "type": "LEAF"
+                    },
+                    "hideTrend": {
+                      "key": "|value|configuration|hideTrend",
+                      "name": "hideTrend",
+                      "isIndexLeaf": false,
+                      "expression": "%p%false:::false%p%",
+                      "type": "LEAF"
+                    },
+                    "hideUnits": {
+                      "key": "|value|configuration|hideUnits",
+                      "name": "hideUnits",
+                      "isIndexLeaf": false,
+                      "expression": "%p%false:::false%p%",
+                      "type": "LEAF"
+                    },
+                    "hideHLBadge": {
+                      "key": "|value|configuration|hideHLBadge",
+                      "name": "hideHLBadge",
+                      "isIndexLeaf": false,
+                      "expression": "%p%false:::false%p%",
+                      "type": "LEAF"
+                    }
+                  }
+                },
+                "units": {
+                  "key": "|value|units",
+                  "name": "units",
+                  "isIndexLeaf": false,
+                  "expression": "%24h_bp% %aql%/data[at0001]/events[at1042]/data[at0003]/items[at0004]/value:::systolic_24h_mean%aql% %aql%unit%aql%",
+                  "type": "LEAF"
+                },
+                "score": {
+                  "key": "|value|score",
+                  "name": "score",
+                  "isIndexLeaf": false,
+                  "expression": "%24h_bp%",
+                  "type": "LIST",
+                  "children": [
+                    {
+                      "key": "|value|score|0",
+                      "name": "value",
+                      "isIndexLeaf": false,
+                      "type": "OBJECT",
+                      "children": {
+                        "value": {
+                          "key": "|value|score|0|value",
+                          "name": "value",
+                          "isIndexLeaf": false,
+                          "expression": "%_db_%systolic_24h_mean%_db_% %_db_%magnitude%_db_%",
+                          "type": "LEAF"
+                        },
+                        "secondValue": {
+                          "key": "|value|score|0|secondValue",
+                          "name": "secondValue",
+                          "isIndexLeaf": false,
+                          "expression": "%_db_%diastolic_24h_mean%_db_% %_db_%magnitude%_db_%",
+                          "type": "LEAF"
+                        },
+                        "timeStamp": {
+                          "key": "|value|score|0|timeStamp",
+                          "name": "timeStamp",
+                          "isIndexLeaf": false,
+                          "expression": "%_db_%measurement_date%_db_%",
+                          "type": "LEAF"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "valid": true
+          },
+          "inputs": [
+            {
+              "list": [],
+              "type": "CUSTOM",
+              "library": "better-param-widget-1-0-4.js",
+              "selector": "better-param-widget-1-0-4",
+              "version": "1.0.4",
+              "contentId": 4646
+            }
+          ]
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "initialActionSent": false,
+          "rmType": "GENERIC_EXTERNAL_WIDGET",
+          "id": "generic-external_widget-6955946",
+          "formId": "generic-external_widget-6955946",
+          "nodeId": "generic-external_widget-6955946",
+          "max": 1,
+          "name": "better-param-widget-1-0-4",
+          "alias": "better-param-widget-1-0-4-3",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "persistentGeneric": true
+            },
+            "size": {
+              "label": "COLUMN_12",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "valueMappingData": {
+            "valueMapping": {
+              "key": "|value",
+              "name": "value",
+              "isIndexLeaf": false,
+              "type": "OBJECT",
+              "children": {
+                "configuration": {
+                  "key": "|value|configuration",
+                  "name": "configuration",
+                  "isIndexLeaf": false,
+                  "type": "OBJECT",
+                  "children": {
+                    "label": {
+                      "key": "|value|configuration|label",
+                      "name": "label",
+                      "isIndexLeaf": false,
+                      "expression": "Blutdruck Tages-Mittelwerte",
+                      "type": "LEAF"
+                    },
+                    "cardType": {
+                      "key": "|value|configuration|cardType",
+                      "name": "cardType",
+                      "isIndexLeaf": false,
+                      "expression": "%p%condensed:::condensed%p%",
+                      "type": "LEAF"
+                    },
+                    "graphType": {
+                      "key": "|value|configuration|graphType",
+                      "name": "graphType",
+                      "isIndexLeaf": false,
+                      "expression": "%p%sparkline:::sparkline%p%",
+                      "type": "LEAF"
+                    },
+                    "hideTrend": {
+                      "key": "|value|configuration|hideTrend",
+                      "name": "hideTrend",
+                      "isIndexLeaf": false,
+                      "expression": "%p%false:::false%p%",
+                      "type": "LEAF"
+                    },
+                    "hideUnits": {
+                      "key": "|value|configuration|hideUnits",
+                      "name": "hideUnits",
+                      "isIndexLeaf": false,
+                      "expression": "%p%false:::false%p%",
+                      "type": "LEAF"
+                    },
+                    "hideHLBadge": {
+                      "key": "|value|configuration|hideHLBadge",
+                      "name": "hideHLBadge",
+                      "isIndexLeaf": false,
+                      "expression": "%p%false:::false%p%",
+                      "type": "LEAF"
+                    }
+                  }
+                },
+                "units": {
+                  "key": "|value|units",
+                  "name": "units",
+                  "isIndexLeaf": false,
+                  "expression": "%24h_bp% %aql%/data[at0001]/events[at1042]/data[at0003]/items[at0004]/value:::systolic_24h_mean%aql% %aql%unit%aql%",
+                  "type": "LEAF"
+                },
+                "score": {
+                  "key": "|value|score",
+                  "name": "score",
+                  "isIndexLeaf": false,
+                  "expression": "%24h_bp%",
+                  "type": "LIST",
+                  "children": [
+                    {
+                      "key": "|value|score|0",
+                      "name": "value",
+                      "isIndexLeaf": false,
+                      "type": "OBJECT",
+                      "children": {
+                        "value": {
+                          "key": "|value|score|0|value",
+                          "name": "value",
+                          "isIndexLeaf": false,
+                          "expression": "%_db_%systolic_day_mean%_db_% %_db_%magnitude%_db_%",
+                          "type": "LEAF"
+                        },
+                        "secondValue": {
+                          "key": "|value|score|0|secondValue",
+                          "name": "secondValue",
+                          "isIndexLeaf": false,
+                          "pathParams": {},
+                          "expression": "%_db_%diastolic_day_mean%_db_% %_db_%magnitude%_db_%",
+                          "type": "LEAF"
+                        },
+                        "timeStamp": {
+                          "key": "|value|score|0|timeStamp",
+                          "name": "timeStamp",
+                          "isIndexLeaf": false,
+                          "expression": "%_db_%measurement_date%_db_%",
+                          "type": "LEAF"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "valid": true
+          },
+          "inputs": [
+            {
+              "list": [],
+              "type": "CUSTOM",
+              "library": "better-param-widget-1-0-4.js",
+              "selector": "better-param-widget-1-0-4",
+              "version": "1.0.4",
+              "contentId": 4646
+            }
+          ]
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "initialActionSent": false,
+          "rmType": "GENERIC_EXTERNAL_WIDGET",
+          "id": "generic-external_widget-7638531",
+          "formId": "generic-external_widget-7638531",
+          "nodeId": "generic-external_widget-7638531",
+          "max": 1,
+          "name": "better-param-widget-1-0-4",
+          "alias": "better-param-widget-1-0-4-3-1",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "persistentGeneric": true
+            },
+            "size": {
+              "label": "COLUMN_12",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "valueMappingData": {
+            "valueMapping": {
+              "key": "|value",
+              "name": "value",
+              "isIndexLeaf": false,
+              "type": "OBJECT",
+              "children": {
+                "configuration": {
+                  "key": "|value|configuration",
+                  "name": "configuration",
+                  "isIndexLeaf": false,
+                  "type": "OBJECT",
+                  "children": {
+                    "label": {
+                      "key": "|value|configuration|label",
+                      "name": "label",
+                      "isIndexLeaf": false,
+                      "expression": "Blutdruck Nacht-Mittelwerte",
+                      "type": "LEAF"
+                    },
+                    "cardType": {
+                      "key": "|value|configuration|cardType",
+                      "name": "cardType",
+                      "isIndexLeaf": false,
+                      "expression": "%p%condensed:::condensed%p%",
+                      "type": "LEAF"
+                    },
+                    "graphType": {
+                      "key": "|value|configuration|graphType",
+                      "name": "graphType",
+                      "isIndexLeaf": false,
+                      "expression": "%p%sparkline:::sparkline%p%",
+                      "type": "LEAF"
+                    },
+                    "hideTrend": {
+                      "key": "|value|configuration|hideTrend",
+                      "name": "hideTrend",
+                      "isIndexLeaf": false,
+                      "expression": "%p%false:::false%p%",
+                      "type": "LEAF"
+                    },
+                    "hideUnits": {
+                      "key": "|value|configuration|hideUnits",
+                      "name": "hideUnits",
+                      "isIndexLeaf": false,
+                      "expression": "%p%false:::false%p%",
+                      "type": "LEAF"
+                    },
+                    "hideHLBadge": {
+                      "key": "|value|configuration|hideHLBadge",
+                      "name": "hideHLBadge",
+                      "isIndexLeaf": false,
+                      "expression": "%p%false:::false%p%",
+                      "type": "LEAF"
+                    }
+                  }
+                },
+                "units": {
+                  "key": "|value|units",
+                  "name": "units",
+                  "isIndexLeaf": false,
+                  "expression": "%24h_bp% %aql%/data[at0001]/events[at1042]/data[at0003]/items[at0004]/value:::systolic_24h_mean%aql% %aql%unit%aql%",
+                  "type": "LEAF"
+                },
+                "score": {
+                  "key": "|value|score",
+                  "name": "score",
+                  "isIndexLeaf": false,
+                  "expression": "%24h_bp%",
+                  "type": "LIST",
+                  "children": [
+                    {
+                      "key": "|value|score|0",
+                      "name": "value",
+                      "isIndexLeaf": false,
+                      "type": "OBJECT",
+                      "children": {
+                        "value": {
+                          "key": "|value|score|0|value",
+                          "name": "value",
+                          "isIndexLeaf": false,
+                          "expression": "%_db_%systolic_night_mean%_db_% %_db_%magnitude%_db_%",
+                          "type": "LEAF"
+                        },
+                        "secondValue": {
+                          "key": "|value|score|0|secondValue",
+                          "name": "secondValue",
+                          "isIndexLeaf": false,
+                          "pathParams": {},
+                          "expression": "%_db_%diastolic_night_mean%_db_% %_db_%magnitude%_db_%",
+                          "type": "LEAF"
+                        },
+                        "timeStamp": {
+                          "key": "|value|score|0|timeStamp",
+                          "name": "timeStamp",
+                          "isIndexLeaf": false,
+                          "expression": "%_db_%measurement_date%_db_%",
+                          "type": "LEAF"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "valid": true
+          },
+          "inputs": [
+            {
+              "list": [],
+              "type": "CUSTOM",
+              "library": "better-param-widget-1-0-4.js",
+              "selector": "better-param-widget-1-0-4",
+              "version": "1.0.4",
+              "contentId": 4646
+            }
+          ]
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-7335096",
+      "formId": "generic-layout_group-7335096",
+      "alias": "Group-21",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-4522909",
+      "formId": "generic-rich_text-4522909",
+      "alias": "Rich text-14",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p>Designvorschlag 2 (Line Charts; aufgeteilt in drei Charts)</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "initialActionSent": false,
+      "rmType": "GENERIC_EXTERNAL_WIDGET",
+      "id": "generic-external_widget-1983562",
+      "formId": "generic-external_widget-1983562",
+      "nodeId": "generic-external_widget-4881006",
+      "max": 1,
+      "name": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2",
+      "alias": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2-1",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "persistentGeneric": true
+        },
+        "size": {
+          "label": "COLUMN_12",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "valueMappingData": {
+        "valueMapping": {
+          "key": "|value",
+          "name": "value",
+          "isIndexLeaf": false,
+          "type": "OBJECT",
+          "children": {
+            "chartData": {
+              "key": "|value|chartData",
+              "name": "chartData",
+              "isIndexLeaf": false,
+              "type": "LIST",
+              "children": [
+                {
+                  "key": "|value|chartData|0",
+                  "name": "1",
+                  "isIndexLeaf": false,
+                  "type": "OBJECT",
+                  "children": {
+                    "name": {
+                      "key": "|value|chartData|0|name",
+                      "name": "name",
+                      "isIndexLeaf": false,
+                      "expression": "BD 24h-MW systolisch",
+                      "type": "LEAF"
+                    },
+                    "color": {
+                      "key": "|value|chartData|0|color",
+                      "name": "color",
+                      "isIndexLeaf": false,
+                      "expression": "green",
+                      "type": "LEAF"
+                    },
+                    "data": {
+                      "key": "|value|chartData|0|data",
+                      "name": "data",
+                      "isIndexLeaf": false,
+                      "expression": "%24h_bp%",
+                      "type": "LIST",
+                      "children": [
+                        {
+                          "key": "|value|chartData|0|data|0",
+                          "name": "value",
+                          "isIndexLeaf": false,
+                          "type": "OBJECT",
+                          "children": {
+                            "y": {
+                              "key": "|value|chartData|0|data|0|y",
+                              "name": "y",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%systolic_24h_mean%_db_% %_db_%magnitude%_db_%",
+                              "type": "LEAF"
+                            },
+                            "x": {
+                              "key": "|value|chartData|0|data|0|x",
+                              "name": "x",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%measurement_date%_db_%",
+                              "type": "LEAF"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "key": "|value|chartData|1",
+                  "name": "2",
+                  "isIndexLeaf": false,
+                  "type": "OBJECT",
+                  "children": {
+                    "name": {
+                      "key": "|value|chartData|1|name",
+                      "name": "name",
+                      "isIndexLeaf": false,
+                      "expression": "BD 24h-MW diastolisch",
+                      "type": "LEAF"
+                    },
+                    "color": {
+                      "key": "|value|chartData|1|color",
+                      "name": "color",
+                      "isIndexLeaf": false,
+                      "expression": "green",
+                      "type": "LEAF"
+                    },
+                    "data": {
+                      "key": "|value|chartData|1|data",
+                      "name": "data",
+                      "isIndexLeaf": false,
+                      "expression": "%24h_bp%",
+                      "type": "LIST",
+                      "children": [
+                        {
+                          "key": "|value|chartData|1|data|0",
+                          "name": "value",
+                          "isIndexLeaf": false,
+                          "type": "OBJECT",
+                          "children": {
+                            "y": {
+                              "key": "|value|chartData|1|data|0|y",
+                              "name": "y",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%diastolic_24h_mean%_db_% %_db_%magnitude%_db_%",
+                              "type": "LEAF"
+                            },
+                            "x": {
+                              "key": "|value|chartData|1|data|0|x",
+                              "name": "x",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%measurement_date%_db_%",
+                              "type": "LEAF"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "config": {
+              "key": "|value|config",
+              "name": "config",
+              "isIndexLeaf": false,
+              "type": "OBJECT",
+              "children": {
+                "min": {
+                  "key": "|value|config|min",
+                  "name": "min",
+                  "isIndexLeaf": false,
+                  "expression": "40",
+                  "type": "LEAF"
+                },
+                "max": {
+                  "key": "|value|config|max",
+                  "name": "max",
+                  "isIndexLeaf": false,
+                  "expression": "180",
+                  "type": "LEAF"
+                },
+                "showLogToggle": {
+                  "key": "|value|config|showLogToggle",
+                  "name": "showLogToggle",
+                  "isIndexLeaf": false,
+                  "expression": "%p%false:::false%p%",
+                  "type": "LEAF"
+                },
+                "hideXGrid": {
+                  "key": "|value|config|hideXGrid",
+                  "name": "hideXGrid",
+                  "isIndexLeaf": false,
+                  "expression": "%p%false:::false%p%",
+                  "type": "LEAF"
+                },
+                "tickAmount": {
+                  "key": "|value|config|tickAmount",
+                  "name": "tickAmount",
+                  "isIndexLeaf": false,
+                  "expression": "10",
+                  "type": "LEAF"
+                },
+                "type": {
+                  "key": "|value|config|type",
+                  "name": "type",
+                  "isIndexLeaf": false,
+                  "expression": "%p%line:::line%p%",
+                  "type": "LEAF"
+                },
+                "curve": {
+                  "key": "|value|config|curve",
+                  "name": "curve",
+                  "isIndexLeaf": false,
+                  "expression": "%p%straight:::straight%p%",
+                  "type": "LEAF"
+                },
+                "dashed": {
+                  "key": "|value|config|dashed",
+                  "name": "dashed",
+                  "isIndexLeaf": false,
+                  "expression": "%p%true:::true%p%",
+                  "type": "LEAF"
+                },
+                "height": {
+                  "key": "|value|config|height",
+                  "name": "height",
+                  "isIndexLeaf": false,
+                  "expression": "250",
+                  "type": "LEAF"
+                }
+              }
+            }
+          }
+        },
+        "valid": true
+      },
+      "inputs": [
+        {
+          "list": [],
+          "type": "CUSTOM",
+          "library": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2.js",
+          "selector": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2",
+          "version": "1.0.2",
+          "contentId": 3771
+        }
+      ]
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "initialActionSent": false,
+      "rmType": "GENERIC_EXTERNAL_WIDGET",
+      "id": "generic-external_widget-5368689",
+      "formId": "generic-external_widget-5368689",
+      "nodeId": "generic-external_widget-5368689",
+      "max": 1,
+      "name": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2",
+      "alias": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2-1-2",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "persistentGeneric": true
+        },
+        "size": {
+          "label": "COLUMN_12",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "valueMappingData": {
+        "valueMapping": {
+          "key": "|value",
+          "name": "value",
+          "isIndexLeaf": false,
+          "type": "OBJECT",
+          "children": {
+            "chartData": {
+              "key": "|value|chartData",
+              "name": "chartData",
+              "isIndexLeaf": false,
+              "type": "LIST",
+              "children": [
+                {
+                  "key": "|value|chartData|0",
+                  "name": "1",
+                  "isIndexLeaf": false,
+                  "type": "OBJECT",
+                  "children": {
+                    "name": {
+                      "key": "|value|chartData|0|name",
+                      "name": "name",
+                      "isIndexLeaf": false,
+                      "expression": "BD Tages-MW systolisch",
+                      "type": "LEAF"
+                    },
+                    "color": {
+                      "key": "|value|chartData|0|color",
+                      "name": "color",
+                      "isIndexLeaf": false,
+                      "expression": "orange",
+                      "type": "LEAF"
+                    },
+                    "data": {
+                      "key": "|value|chartData|0|data",
+                      "name": "data",
+                      "isIndexLeaf": false,
+                      "expression": "%24h_bp%",
+                      "type": "LIST",
+                      "children": [
+                        {
+                          "key": "|value|chartData|0|data|0",
+                          "name": "value",
+                          "isIndexLeaf": false,
+                          "type": "OBJECT",
+                          "children": {
+                            "y": {
+                              "key": "|value|chartData|0|data|0|y",
+                              "name": "y",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%systolic_day_mean%_db_% %_db_%magnitude%_db_%",
+                              "type": "LEAF"
+                            },
+                            "x": {
+                              "key": "|value|chartData|0|data|0|x",
+                              "name": "x",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%measurement_date%_db_%",
+                              "type": "LEAF"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "key": "|value|chartData|1",
+                  "name": "2",
+                  "isIndexLeaf": false,
+                  "type": "OBJECT",
+                  "children": {
+                    "name": {
+                      "key": "|value|chartData|1|name",
+                      "name": "name",
+                      "isIndexLeaf": false,
+                      "expression": "BD Tages-MW diastolisch",
+                      "type": "LEAF"
+                    },
+                    "color": {
+                      "key": "|value|chartData|1|color",
+                      "name": "color",
+                      "isIndexLeaf": false,
+                      "expression": "orange",
+                      "type": "LEAF"
+                    },
+                    "data": {
+                      "key": "|value|chartData|1|data",
+                      "name": "data",
+                      "isIndexLeaf": false,
+                      "expression": "%24h_bp%",
+                      "type": "LIST",
+                      "children": [
+                        {
+                          "key": "|value|chartData|1|data|0",
+                          "name": "value",
+                          "isIndexLeaf": false,
+                          "type": "OBJECT",
+                          "children": {
+                            "y": {
+                              "key": "|value|chartData|1|data|0|y",
+                              "name": "y",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%diastolic_day_mean%_db_% %_db_%magnitude%_db_%",
+                              "type": "LEAF"
+                            },
+                            "x": {
+                              "key": "|value|chartData|1|data|0|x",
+                              "name": "x",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%measurement_date%_db_%",
+                              "type": "LEAF"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "config": {
+              "key": "|value|config",
+              "name": "config",
+              "isIndexLeaf": false,
+              "type": "OBJECT",
+              "children": {
+                "min": {
+                  "key": "|value|config|min",
+                  "name": "min",
+                  "isIndexLeaf": false,
+                  "expression": "40",
+                  "type": "LEAF"
+                },
+                "max": {
+                  "key": "|value|config|max",
+                  "name": "max",
+                  "isIndexLeaf": false,
+                  "expression": "180",
+                  "type": "LEAF"
+                },
+                "showLogToggle": {
+                  "key": "|value|config|showLogToggle",
+                  "name": "showLogToggle",
+                  "isIndexLeaf": false,
+                  "expression": "%p%false:::false%p%",
+                  "type": "LEAF"
+                },
+                "hideXGrid": {
+                  "key": "|value|config|hideXGrid",
+                  "name": "hideXGrid",
+                  "isIndexLeaf": false,
+                  "expression": "%p%false:::false%p%",
+                  "type": "LEAF"
+                },
+                "tickAmount": {
+                  "key": "|value|config|tickAmount",
+                  "name": "tickAmount",
+                  "isIndexLeaf": false,
+                  "expression": "10",
+                  "type": "LEAF"
+                },
+                "type": {
+                  "key": "|value|config|type",
+                  "name": "type",
+                  "isIndexLeaf": false,
+                  "expression": "%p%line:::line%p%",
+                  "type": "LEAF"
+                },
+                "curve": {
+                  "key": "|value|config|curve",
+                  "name": "curve",
+                  "isIndexLeaf": false,
+                  "expression": "%p%straight:::straight%p%",
+                  "type": "LEAF"
+                },
+                "dashed": {
+                  "key": "|value|config|dashed",
+                  "name": "dashed",
+                  "isIndexLeaf": false,
+                  "expression": "%p%true:::true%p%",
+                  "type": "LEAF"
+                },
+                "height": {
+                  "key": "|value|config|height",
+                  "name": "height",
+                  "isIndexLeaf": false,
+                  "expression": "250",
+                  "type": "LEAF"
+                }
+              }
+            }
+          }
+        },
+        "valid": true
+      },
+      "inputs": [
+        {
+          "list": [],
+          "type": "CUSTOM",
+          "library": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2.js",
+          "selector": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2",
+          "version": "1.0.2",
+          "contentId": 3771
+        }
+      ]
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "initialActionSent": false,
+      "rmType": "GENERIC_EXTERNAL_WIDGET",
+      "id": "generic-external_widget-7896327",
+      "formId": "generic-external_widget-7896327",
+      "nodeId": "generic-external_widget-7896327",
+      "max": 1,
+      "name": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2",
+      "alias": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2-1-1",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "persistentGeneric": true
+        },
+        "size": {
+          "label": "COLUMN_12",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "valueMappingData": {
+        "valueMapping": {
+          "key": "|value",
+          "name": "value",
+          "isIndexLeaf": false,
+          "type": "OBJECT",
+          "children": {
+            "chartData": {
+              "key": "|value|chartData",
+              "name": "chartData",
+              "isIndexLeaf": false,
+              "type": "LIST",
+              "children": [
+                {
+                  "key": "|value|chartData|0",
+                  "name": "1",
+                  "isIndexLeaf": false,
+                  "type": "OBJECT",
+                  "children": {
+                    "name": {
+                      "key": "|value|chartData|0|name",
+                      "name": "name",
+                      "isIndexLeaf": false,
+                      "expression": "BD Nacht-MW systolisch",
+                      "type": "LEAF"
+                    },
+                    "color": {
+                      "key": "|value|chartData|0|color",
+                      "name": "color",
+                      "isIndexLeaf": false,
+                      "expression": "blue",
+                      "type": "LEAF"
+                    },
+                    "data": {
+                      "key": "|value|chartData|0|data",
+                      "name": "data",
+                      "isIndexLeaf": false,
+                      "expression": "%24h_bp%",
+                      "type": "LIST",
+                      "children": [
+                        {
+                          "key": "|value|chartData|0|data|0",
+                          "name": "value",
+                          "isIndexLeaf": false,
+                          "type": "OBJECT",
+                          "children": {
+                            "y": {
+                              "key": "|value|chartData|0|data|0|y",
+                              "name": "y",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%systolic_night_mean%_db_% %_db_%magnitude%_db_%",
+                              "type": "LEAF"
+                            },
+                            "x": {
+                              "key": "|value|chartData|0|data|0|x",
+                              "name": "x",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%measurement_date%_db_%",
+                              "type": "LEAF"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "key": "|value|chartData|1",
+                  "name": "2",
+                  "isIndexLeaf": false,
+                  "type": "OBJECT",
+                  "children": {
+                    "name": {
+                      "key": "|value|chartData|1|name",
+                      "name": "name",
+                      "isIndexLeaf": false,
+                      "expression": "BD Nacht-MW diastolisch",
+                      "type": "LEAF"
+                    },
+                    "color": {
+                      "key": "|value|chartData|1|color",
+                      "name": "color",
+                      "isIndexLeaf": false,
+                      "expression": "blue",
+                      "type": "LEAF"
+                    },
+                    "data": {
+                      "key": "|value|chartData|1|data",
+                      "name": "data",
+                      "isIndexLeaf": false,
+                      "expression": "%24h_bp%",
+                      "type": "LIST",
+                      "children": [
+                        {
+                          "key": "|value|chartData|1|data|0",
+                          "name": "value",
+                          "isIndexLeaf": false,
+                          "type": "OBJECT",
+                          "children": {
+                            "y": {
+                              "key": "|value|chartData|1|data|0|y",
+                              "name": "y",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%diastolic_night_mean%_db_% %_db_%magnitude%_db_%",
+                              "type": "LEAF"
+                            },
+                            "x": {
+                              "key": "|value|chartData|1|data|0|x",
+                              "name": "x",
+                              "isIndexLeaf": false,
+                              "expression": "%_db_%measurement_date%_db_%",
+                              "type": "LEAF"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "config": {
+              "key": "|value|config",
+              "name": "config",
+              "isIndexLeaf": false,
+              "type": "OBJECT",
+              "children": {
+                "min": {
+                  "key": "|value|config|min",
+                  "name": "min",
+                  "isIndexLeaf": false,
+                  "expression": "40",
+                  "type": "LEAF"
+                },
+                "max": {
+                  "key": "|value|config|max",
+                  "name": "max",
+                  "isIndexLeaf": false,
+                  "expression": "180",
+                  "type": "LEAF"
+                },
+                "showLogToggle": {
+                  "key": "|value|config|showLogToggle",
+                  "name": "showLogToggle",
+                  "isIndexLeaf": false,
+                  "expression": "%p%false:::false%p%",
+                  "type": "LEAF"
+                },
+                "hideXGrid": {
+                  "key": "|value|config|hideXGrid",
+                  "name": "hideXGrid",
+                  "isIndexLeaf": false,
+                  "expression": "%p%false:::false%p%",
+                  "type": "LEAF"
+                },
+                "tickAmount": {
+                  "key": "|value|config|tickAmount",
+                  "name": "tickAmount",
+                  "isIndexLeaf": false,
+                  "expression": "10",
+                  "type": "LEAF"
+                },
+                "type": {
+                  "key": "|value|config|type",
+                  "name": "type",
+                  "isIndexLeaf": false,
+                  "expression": "%p%line:::line%p%",
+                  "type": "LEAF"
+                },
+                "curve": {
+                  "key": "|value|config|curve",
+                  "name": "curve",
+                  "isIndexLeaf": false,
+                  "expression": "%p%straight:::straight%p%",
+                  "type": "LEAF"
+                },
+                "dashed": {
+                  "key": "|value|config|dashed",
+                  "name": "dashed",
+                  "isIndexLeaf": false,
+                  "expression": "%p%true:::true%p%",
+                  "type": "LEAF"
+                },
+                "height": {
+                  "key": "|value|config|height",
+                  "name": "height",
+                  "isIndexLeaf": false,
+                  "expression": "250",
+                  "type": "LEAF"
+                }
+              }
+            }
+          }
+        },
+        "valid": true
+      },
+      "inputs": [
+        {
+          "list": [],
+          "type": "CUSTOM",
+          "library": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2.js",
+          "selector": "better-simple-line-chart-48c64e4e-a552-4d7d-9ed3-c5e16151895f-1-0-2",
+          "version": "1.0.2",
+          "contentId": 3771
+        }
+      ]
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "rmType": "GENERIC_RICH_TEXT",
+          "max": 1,
+          "name": "Rich text",
+          "id": "generic-rich_text-3375903",
+          "formId": "generic-rich_text-3375903",
+          "alias": "Rich text-18",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_12"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "<p>Tabellarische Datenansicht</p>"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-1186362",
+              "formId": "generic-rich_text-1186362",
+              "nodeId": "generic-rich_text-1186362",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-19",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Datum</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-348302",
+              "formId": "generic-rich_text-348302",
+              "nodeId": "generic-rich_text-7555145",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-23",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>24-Stunden-Mittelwert Blutdruck Systolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-3481044",
+              "formId": "generic-rich_text-3481044",
+              "nodeId": "generic-rich_text-3481044",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-23-1",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p><span style=\"color: rgb(0, 0, 0);\">24-Stunden-Mittelwert Blutdruck</span> Diastolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-7779669",
+              "formId": "generic-rich_text-7779669",
+              "nodeId": "generic-rich_text-8503217",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-25",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Nacht-Mittelwert Blutdruck Systolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": true,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-1056448",
+              "formId": "generic-rich_text-1056448",
+              "nodeId": "generic-rich_text-5396012",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-22",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "datasource": {
+                "force": false,
+                "bindings": {
+                  "label": "%_db_%measurement_date%_db_%"
+                },
+                "expression": true
+              },
+              "localizedNames": {
+                "en": "<p>{{datasource}}</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": true,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-8963247",
+              "formId": "generic-rich_text-8963247",
+              "nodeId": "generic-rich_text-1108915",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-20",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "datasource": {
+                "force": false,
+                "bindings": {
+                  "label": "%_db_%systolic_24h_mean%_db_% %_db_%magnitude%_db_%"
+                },
+                "expression": true
+              },
+              "localizedNames": {
+                "en": "<p>{{datasource}} mmHg</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": true,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-4585821",
+              "formId": "generic-rich_text-4585821",
+              "nodeId": "generic-rich_text-271955",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-24",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "datasource": {
+                "force": false,
+                "bindings": {
+                  "label": "%_db_%diastolic_24h_mean%_db_% %_db_%magnitude%_db_%"
+                },
+                "expression": true
+              },
+              "localizedNames": {
+                "en": "<p>{{datasource}} mmHg</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": true,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-927791",
+              "formId": "generic-rich_text-927791",
+              "nodeId": "generic-rich_text-2370574",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-21",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "datasource": {
+                "force": false,
+                "bindings": {
+                  "label": "%_db_%systolic_night_mean%_db_% %_db_%magnitude%_db_%"
+                },
+                "expression": true
+              },
+              "localizedNames": {
+                "en": "<p>{{datasource}} <span style=\"color: rgb(0, 0, 0);\">mmHg</span></p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-9874062",
+              "formId": "generic-rich_text-9874062",
+              "nodeId": "generic-rich_text-1657629",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-26",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Nacht-Mittelwert Blutdruck Diastolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": true,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-9874549",
+              "formId": "generic-rich_text-9874549",
+              "nodeId": "generic-rich_text-5901685",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-27",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "datasource": {
+                "force": false,
+                "bindings": {
+                  "label": "%_db_%diastolic_night_mean%_db_% %_db_%magnitude%_db_%"
+                },
+                "expression": true
+              },
+              "localizedNames": {
+                "en": "<p>{{datasource}} mmHg</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-7871956",
+              "formId": "generic-rich_text-7871956",
+              "nodeId": "generic-rich_text-3309498",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-28",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Tag-Mittelwert Blutdruck Systolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": true,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-9441014",
+              "formId": "generic-rich_text-9441014",
+              "nodeId": "generic-rich_text-4651410",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-29",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "datasource": {
+                "force": false,
+                "bindings": {
+                  "label": "%_db_%systolic_day_mean%_db_% %_db_%magnitude%_db_%"
+                },
+                "expression": true
+              },
+              "localizedNames": {
+                "en": "<p>{{datasource}} mmHg</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-5172382",
+              "formId": "generic-rich_text-5172382",
+              "nodeId": "generic-rich_text-6868636",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-30",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Tag-Mittelwert Blutdruck Diastolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": true,
+              "children": [],
+              "rmType": "GENERIC_RICH_TEXT",
+              "id": "generic-rich_text-420936",
+              "formId": "generic-rich_text-420936",
+              "nodeId": "generic-rich_text-6461977",
+              "max": 1,
+              "name": "Rich text",
+              "alias": "Rich text-31",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "datasource": {
+                "force": false,
+                "bindings": {
+                  "label": "%_db_%diastolic_day_mean%_db_% %_db_%magnitude%_db_%"
+                },
+                "expression": true
+              },
+              "localizedNames": {
+                "en": "<p>{{datasource}} mmHg</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            }
+          ],
+          "defaultNumberOfColumns": 3,
+          "numberOfColumns": 3,
+          "rmType": "GENERIC_COLUMN_LIST",
+          "max": 1,
+          "name": "Column list",
+          "id": "generic-column_list-8197084",
+          "formId": "generic-column_list-8197084",
+          "alias": "Column list",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "TOP",
+            "isGridLayout": true,
+            "errorHandling": {}
+          },
+          "datasource": {
+            "force": false,
+            "source": "%value (list)%",
+            "bindings": {},
+            "pathParameters": {},
+            "variableId": "994d3501-a71a-4468-b6cc-cc6c5e098759"
+          },
+          "localizedNames": {
+            "en": "Column list"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-9070453",
+      "formId": "generic-layout_group-9070453",
+      "alias": "Group-20",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    }
+  ],
+  "docType": "FORM",
+  "formId": "form_root",
+  "name": "form_root",
+  "rmType": "FORM_DEFINITION",
+  "uuid": "c82bdbe0-8b24-44fa-963b-4c601b3905d6",
+  "fbVersion": "3.11.5",
+  "initialFbVersion": "3.11.1",
+  "defaultLanguage": "en",
+  "viewConfig": {
+    "tags": [],
+    "annotations": {},
+    "advanced": {},
+    "size": {
+      "label": "INHERIT",
+      "element": "COLUMN_12"
+    },
+    "layout": {
+      "label": {
+        "align": "top"
+      },
+      "field": {
+        "align": "inherit"
+      }
+    },
+    "label": {}
+  },
+  "localizedNames": {
+    "en": "form_root"
+  },
+  "templates": [
+    {
+      "templateId": "outpatient-24h-blood-pressure-monitoring",
+      "instance": "4f4f8cff-67e8-408e-b310-d4337bf81abb"
+    }
+  ]
+}

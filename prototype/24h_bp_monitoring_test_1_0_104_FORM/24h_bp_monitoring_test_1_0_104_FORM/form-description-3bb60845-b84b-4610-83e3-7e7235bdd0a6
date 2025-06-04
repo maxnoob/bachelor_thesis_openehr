@@ -1,0 +1,815 @@
+{
+  "min": 0,
+  "localizedNamesIncludeVariables": false,
+  "children": [
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_CODED_TEXT",
+      "max": 1,
+      "name": "Select",
+      "id": "generic-coded_text-692796",
+      "formId": "generic-coded_text-692796",
+      "alias": "Navigation-1-1",
+      "nodeId": "generic-coded_text-692796",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {
+          "ehrFormScript": "\"console.log(\\\"Nav bar script loaded\\\");\\n\\n// set the template path for the field, where the nav bar should be. this has to be done on every page per form.\\nconst navField = 'generic-coded_text-692796'\\n\\n// get the ids from the code section </> under \\\"Form pages\\\"\\nconst pages = [\\n  { label: \\\"24h-Blutdruck & PWA\\\", id: \\\"1cf8d383-25d3-496f-a213-e8303984fe7a\\\" },\\n  { label: \\\"Personendaten\\\", id: \\\"3bb60845-b84b-4610-83e3-7e7235bdd0a6\\\" },\\n  { label: \\\"Beurteilung\\\", id: \\\"c9545730-761b-45cb-adc4-14852aa5c005\\\" },\\n  { label: \\\"Verlauf\\\", id: \\\"0be63b54-37e6-4551-a28f-a5a1b0622060\\\"}\\n];\\n\\npages.forEach(page => {\\n  api.addFormElementInput(navField, {\\n    label: page.label,\\n    code: page.id\\n  });\\n});\\n\\napi.addListener(navField, 'CHANGE', function() {\\n    const selectedPage = api.getFieldValue(navField, undefined, undefined, undefined, false);\\n    console.log(\\\"Selected value:\\\", selectedPage);\\n    // wait for the object to be initiliazed to avoid TypeError.\\n    if (selectedPage && selectedPage.code) {\\n    api.goTo(selectedPage.code);\\n    api.setFieldValue(navField, null); // otherwise odd behaviour with selected buttons in nav bar occurs\\n  }\\n}, { onInitialValueSet: true });\""
+        },
+        "advanced": {
+          "persistentGeneric": true,
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {
+          "code": {
+            "presentation": "BUTTONGROUP",
+            "columns": 2,
+            "disabled": false,
+            "hidden": false,
+            "readonly": false
+          }
+        }
+      },
+      "datasource": {
+        "force": false,
+        "source": "",
+        "bindings": {},
+        "pathParameters": {
+          "{codeSystem}": ""
+        }
+      },
+      "localizedNames": {
+        "en": "<p>Navigation</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": [
+        {
+          "list": [],
+          "type": "CODED_TEXT",
+          "suffix": "code"
+        }
+      ]
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "rmType": "GENERIC_RICH_TEXT",
+          "max": 1,
+          "name": "Rich text",
+          "id": "generic-rich_text-1096057",
+          "formId": "generic-rich_text-1096057",
+          "alias": "Rich text-7",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_12"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "<h3>Personendaten</h3>"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-4525372",
+      "formId": "generic-layout_group-4525372",
+      "alias": "Group-18",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "chronological_age",
+          "name": "Chronological age",
+          "localizedName": "Chronological age",
+          "rmType": "DV_QUANTITY",
+          "nodeId": "at0004",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Additional data']/items[openEHR-EHR-OBSERVATION.age_assertion.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+          "formId": "outpatient-24h-blood-pressure-monitoring/additional_data/age_assertion/chronological_age",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Alter",
+          "viewConfig": {
+            "tags": [
+              "showLocalizedUnit"
+            ],
+            "annotations": {},
+            "advanced": {
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "<p>Alter</p>"
+          },
+          "localizedDescriptions": {
+            "en": "The age of an individual at the event time, calculated from date of birth."
+          },
+          "inputs": [
+            {
+              "list": [],
+              "suffix": "magnitude",
+              "type": "DECIMAL",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">=",
+                  "max": 200,
+                  "maxOp": "<"
+                }
+              }
+            },
+            {
+              "list": [
+                {
+                  "value": "a",
+                  "label": "a",
+                  "localizedLabels": {
+                    "en": "Jahre"
+                  },
+                  "validation": {
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 200,
+                      "maxOp": "<"
+                    }
+                  },
+                  "overrideOption": true
+                }
+              ],
+              "suffix": "unit",
+              "type": "CODED_TEXT",
+              "defaultValue": [
+                "%p%a:::a%p%"
+              ]
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "weight",
+          "name": "Weight",
+          "localizedName": "Weight",
+          "rmType": "DV_QUANTITY",
+          "nodeId": "at0004",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Additional data']/items[openEHR-EHR-OBSERVATION.body_weight.v2]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value",
+          "formId": "outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Gewicht",
+          "viewConfig": {
+            "tags": [
+              "showLocalizedUnit"
+            ],
+            "annotations": {},
+            "advanced": {
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "unit": {
+                "presentation": null,
+                "disabled": false,
+                "hidden": false,
+                "readonly": true
+              }
+            }
+          },
+          "localizedNames": {
+            "en": "<p>Gewicht</p>"
+          },
+          "localizedDescriptions": {
+            "en": "The weight of the individual."
+          },
+          "inputs": [
+            {
+              "list": [],
+              "suffix": "magnitude",
+              "type": "DECIMAL"
+            },
+            {
+              "list": [
+                {
+                  "value": "kg",
+                  "label": "kg",
+                  "validation": {
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<="
+                    }
+                  }
+                },
+                {
+                  "value": "g",
+                  "label": "g",
+                  "validation": {
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000000,
+                      "maxOp": "<="
+                    }
+                  }
+                },
+                {
+                  "value": "[lb_av]",
+                  "label": "[lb_av]",
+                  "localizedLabels": {
+                    "en": "lbm"
+                  },
+                  "validation": {
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 2000,
+                      "maxOp": "<="
+                    }
+                  }
+                }
+              ],
+              "suffix": "unit",
+              "type": "CODED_TEXT",
+              "defaultValue": [
+                "%p%kg:::kg%p%"
+              ]
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "time",
+          "name": "Time",
+          "rmType": "DV_DATE_TIME",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Additional data']/items[openEHR-EHR-OBSERVATION.body_weight.v2]/data[at0002]/events[at0003]/time",
+          "inContext": true,
+          "formId": "outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/time",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Time-weight",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/time\",\"expressions\":[{\"id\":\"f88c2898-7ead-476b-a4eb-2c7e8e057011\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"0750cd11-f825-46bc-86bc-6fc70bb5c776\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"4f9ddfdf-e3de-472e-bc3f-1df7c6c7c03f\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"0750cd11-f825-46bc-86bc-6fc70bb5c776\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"4f9ddfdf-e3de-472e-bc3f-1df7c6c7c03f\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"df89c85a-b05a-46c0-ae70-ba1c7cab95fa\",\"valid\":true}],\"events\":[{\"id\":\"56999e6a-a831-4785-a5bc-a8cd1c83e302\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"156c0068-acc9-4f4a-907f-c9bbc93f8c0d\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "Time"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [],
+              "type": "DATETIME",
+              "validation": {
+                "range": {}
+              }
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "height_length",
+          "name": "Height/Length",
+          "localizedName": "Height/Length",
+          "rmType": "DV_QUANTITY",
+          "nodeId": "at0004",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Additional data']/items[openEHR-EHR-OBSERVATION.height.v2]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+          "formId": "outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Grösse",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "unit": {
+                "presentation": null,
+                "disabled": false,
+                "hidden": false,
+                "readonly": true
+              }
+            }
+          },
+          "localizedNames": {
+            "en": "<p>Grösse</p>"
+          },
+          "localizedDescriptions": {
+            "en": "The length of the body from crown of head to sole of foot."
+          },
+          "inputs": [
+            {
+              "list": [],
+              "suffix": "magnitude",
+              "type": "DECIMAL"
+            },
+            {
+              "list": [
+                {
+                  "value": "cm",
+                  "label": "cm",
+                  "validation": {
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<="
+                    }
+                  }
+                },
+                {
+                  "value": "[in_i]",
+                  "label": "[in_i]",
+                  "localizedLabels": {
+                    "en": "in"
+                  },
+                  "validation": {
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 250,
+                      "maxOp": "<="
+                    }
+                  }
+                }
+              ],
+              "suffix": "unit",
+              "type": "CODED_TEXT",
+              "defaultValue": [
+                "%p%cm:::cm%p%"
+              ]
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "time",
+          "name": "Time",
+          "rmType": "DV_DATE_TIME",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Additional data']/items[openEHR-EHR-OBSERVATION.height.v2]/data[at0001]/events[at0002]/time",
+          "inContext": true,
+          "formId": "outpatient-24h-blood-pressure-monitoring/additional_data/height_length/time",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Time-height",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/height_length/time\",\"expressions\":[{\"id\":\"f019e553-bf8b-43f9-8276-f837e366cfd1\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"36fd2e92-f0d5-4927-92f7-a9ea51bfaf01\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/additional_data/height_length/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"50109338-e4bd-4400-8a1e-87d1b7888045\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"36fd2e92-f0d5-4927-92f7-a9ea51bfaf01\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/additional_data/height_length/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"50109338-e4bd-4400-8a1e-87d1b7888045\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"e8e9989f-a40a-4b02-81eb-ce17d6a9f3cf\",\"valid\":true}],\"events\":[{\"id\":\"658de123-602b-4190-bcbe-6ae1c92d9db9\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"6a599b23-29a7-4d85-ab64-3d8b0db6db88\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "Time"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [],
+              "type": "DATETIME",
+              "validation": {
+                "range": {}
+              }
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "body_mass_index",
+          "name": "Body mass index",
+          "localizedName": "Body mass index",
+          "rmType": "DV_QUANTITY",
+          "nodeId": "at0004",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Additional data']/items[openEHR-EHR-OBSERVATION.body_mass_index.v2]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+          "formId": "outpatient-24h-blood-pressure-monitoring/additional_data/body_mass_index/body_mass_index",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "BMI",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_mass_index/body_mass_index\",\"expressions\":[{\"id\":\"09781915-10bd-4918-831a-aacc34a4ced0\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight\",\"condition\":{\"operator\":\"notempty\",\"value\":{\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"and\",\"target\":\"aba78839-909b-46a9-a57f-48cf7c467678\"},\"id\":\"ea09c6c7-f64d-4456-85fe-e92a99dc31ca\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length\",\"condition\":{\"operator\":\"notempty\",\"value\":{\"suffix\":\"magnitude\"}},\"id\":\"aba78839-909b-46a9-a57f-48cf7c467678\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_mass_index/body_mass_index\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%f%ROUND:::099-07-aekn%f% ( %f%CALC:::099-00-calcvkj%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight%% %_%magnitude%_% / %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length%% %_%magnitude%_% / 100 , 2 ) ) , 2 )\",\"value\":\"%f%ROUND:::099-07-aekn%f% ( %f%CALC:::099-00-calcvkj%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight%% %_%magnitude%_% / %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length%% %_%magnitude%_% / 100 , 2 ) ) , 2 )\"},\"id\":\"05d11b10-5d8c-40db-962a-f61221ccbc6b\",\"valid\":false,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight\",\"condition\":{\"operator\":\"notempty\",\"value\":{\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"and\",\"target\":\"aba78839-909b-46a9-a57f-48cf7c467678\"},\"id\":\"ea09c6c7-f64d-4456-85fe-e92a99dc31ca\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length\",\"condition\":{\"operator\":\"notempty\",\"value\":{\"suffix\":\"magnitude\"}},\"id\":\"aba78839-909b-46a9-a57f-48cf7c467678\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_mass_index/body_mass_index\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%f%ROUND:::099-07-aekn%f% ( %f%CALC:::099-00-calcvkj%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight%% %_%magnitude%_% / %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length%% %_%magnitude%_% / 100 , 2 ) ) , 2 )\",\"value\":\"%f%ROUND:::099-07-aekn%f% ( %f%CALC:::099-00-calcvkj%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight%% %_%magnitude%_% / %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length%% %_%magnitude%_% / 100 , 2 ) ) , 2 )\"},\"id\":\"05d11b10-5d8c-40db-962a-f61221ccbc6b\",\"valid\":false,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"7558ed61-d519-4dcc-842e-f57671d329e4\",\"valid\":true}],\"events\":[{\"id\":\"f27b9d68-a873-4789-961c-3a33dcfd7d58\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"c4cfe1ca-bb02-460d-b705-ebb9a75ec3a4\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "readonly": true,
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "unit": {
+                "presentation": null,
+                "disabled": false,
+                "hidden": false,
+                "readonly": true
+              }
+            }
+          },
+          "localizedNames": {
+            "en": "<p>BMI</p>"
+          },
+          "localizedDescriptions": {
+            "en": "Index describing ratio of weight to height."
+          },
+          "inputs": [
+            {
+              "list": [],
+              "suffix": "magnitude",
+              "type": "DECIMAL",
+              "defaultValue": [
+                "%%outpatient-24h-blood-pressure-monitoring/additional_data/body_mass_index/body_mass_index%%"
+              ]
+            },
+            {
+              "list": [
+                {
+                  "value": "kg/m2",
+                  "label": "kg/m2",
+                  "localizedLabels": {
+                    "en": "kg/m²"
+                  },
+                  "validation": {
+                    "precision": {
+                      "minOp": ">=",
+                      "min": 1,
+                      "maxOp": "<=",
+                      "max": 1
+                    },
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<"
+                    }
+                  }
+                },
+                {
+                  "value": "[lb_av]/[in_i]2",
+                  "label": "[lb_av]/[in_i]2",
+                  "validation": {
+                    "precision": {
+                      "minOp": ">=",
+                      "min": 1,
+                      "maxOp": "<=",
+                      "max": 1
+                    },
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<"
+                    }
+                  }
+                }
+              ],
+              "suffix": "unit",
+              "type": "CODED_TEXT",
+              "defaultValue": [
+                "%p%kg/m2:::kg/m2%p%"
+              ]
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "body_surface_area",
+          "name": "Body Surface Area",
+          "localizedName": "Body Surface Area",
+          "rmType": "DV_QUANTITY",
+          "nodeId": "at0004",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Additional data']/items[openEHR-EHR-OBSERVATION.body_surface_area.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+          "formId": "outpatient-24h-blood-pressure-monitoring/additional_data/body_surface_area/body_surface_area",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "KOF",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_surface_area/body_surface_area\",\"expressions\":[{\"id\":\"67d1e3d6-9bf7-461f-b956-825c40305f26\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight\",\"condition\":{\"operator\":\"notempty\",\"value\":{\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"and\",\"target\":\"eda84706-3e3e-4ed2-972f-0027b39e6009\"},\"id\":\"4a787bb7-943a-42ec-a58b-fcb03e7d0f7b\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length\",\"condition\":{\"operator\":\"notempty\",\"value\":{\"suffix\":\"magnitude\"}},\"id\":\"eda84706-3e3e-4ed2-972f-0027b39e6009\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_surface_area/body_surface_area\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%f%ROUND:::099-07-aekn%f% ( %f%CALC:::099-00-calcvkj%f% ( 0.007184 * %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length%% %_%magnitude%_% , 0.725 ) * %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight%% %_%magnitude%_% , 0.425 ) ) , 2 )\",\"value\":\"%f%ROUND:::099-07-aekn%f% ( %f%CALC:::099-00-calcvkj%f% ( 0.007184 * %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length%% %_%magnitude%_% , 0.725 ) * %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight%% %_%magnitude%_% , 0.425 ) ) , 2 )\"},\"id\":\"e440b37a-0a6d-4f17-a240-1766d8d20f08\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"},{\"id\":\"4b70d3f4-70d3-4d24-a693-686da1b58d36\",\"valid\":true,\"pureValueObject\":true}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight\",\"condition\":{\"operator\":\"notempty\",\"value\":{\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"and\",\"target\":\"eda84706-3e3e-4ed2-972f-0027b39e6009\"},\"id\":\"4a787bb7-943a-42ec-a58b-fcb03e7d0f7b\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length\",\"condition\":{\"operator\":\"notempty\",\"value\":{\"suffix\":\"magnitude\"}},\"id\":\"eda84706-3e3e-4ed2-972f-0027b39e6009\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/additional_data/body_surface_area/body_surface_area\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%f%ROUND:::099-07-aekn%f% ( %f%CALC:::099-00-calcvkj%f% ( 0.007184 * %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length%% %_%magnitude%_% , 0.725 ) * %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight%% %_%magnitude%_% , 0.425 ) ) , 2 )\",\"value\":\"%f%ROUND:::099-07-aekn%f% ( %f%CALC:::099-00-calcvkj%f% ( 0.007184 * %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length%% %_%magnitude%_% , 0.725 ) * %f%POWER:::099-19-olay%f% ( %%outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight%% %_%magnitude%_% , 0.425 ) ) , 2 )\"},\"id\":\"e440b37a-0a6d-4f17-a240-1766d8d20f08\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"},{\"id\":\"4b70d3f4-70d3-4d24-a693-686da1b58d36\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"2067b6f8-873c-458c-8079-18be548e9f8d\",\"valid\":true}],\"events\":[{\"id\":\"d3ed9873-2846-4320-a5e8-1d2b936c69e0\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"c66a63e5-6a07-4f81-8f3f-ed4971d9f961\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "readonly": true,
+              "overrideLabel": true,
+              "showTooltip": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "unit": {
+                "presentation": null,
+                "disabled": false,
+                "hidden": false,
+                "readonly": false
+              }
+            }
+          },
+          "localizedNames": {
+            "en": "<p>KOF</p>"
+          },
+          "localizedDescriptions": {
+            "en": "The measured or calculated surface area of a human body.\nCalculated with the Dubois formula:  0.007184 x height [cm] ^ 0.725 x weight [kg] ^ 0.425\n"
+          },
+          "inputs": [
+            {
+              "list": [],
+              "suffix": "magnitude",
+              "type": "DECIMAL",
+              "validation": {
+                "precision": {
+                  "minOp": ">=",
+                  "min": 2,
+                  "maxOp": "<=",
+                  "max": 2
+                },
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [
+                {
+                  "value": "m2",
+                  "label": "m2",
+                  "localizedLabels": {
+                    "en": "m²"
+                  },
+                  "validation": {
+                    "precision": {
+                      "minOp": ">=",
+                      "min": 2,
+                      "maxOp": "<=",
+                      "max": 2
+                    },
+                    "range": {
+                      "min": 0,
+                      "minOp": ">="
+                    }
+                  }
+                }
+              ],
+              "suffix": "unit",
+              "type": "CODED_TEXT",
+              "defaultValue": [
+                "%p%m2:::m2%p%"
+              ]
+            }
+          ]
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-5366448",
+      "formId": "generic-layout_group-5366448",
+      "alias": "Group-16",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    }
+  ],
+  "docType": "FORM",
+  "formId": "form_root",
+  "name": "form_root",
+  "rmType": "FORM_DEFINITION",
+  "uuid": "c82bdbe0-8b24-44fa-963b-4c601b3905d6",
+  "fbVersion": "3.11.5",
+  "initialFbVersion": "3.11.1",
+  "defaultLanguage": "en",
+  "viewConfig": {
+    "tags": [],
+    "annotations": {},
+    "advanced": {},
+    "size": {
+      "label": "INHERIT",
+      "element": "COLUMN_12"
+    },
+    "layout": {
+      "label": {
+        "align": "top"
+      },
+      "field": {
+        "align": "inherit"
+      }
+    },
+    "label": {}
+  },
+  "localizedNames": {
+    "en": "form_root"
+  },
+  "templates": [
+    {
+      "templateId": "outpatient-24h-blood-pressure-monitoring",
+      "instance": "4f4f8cff-67e8-408e-b310-d4337bf81abb"
+    }
+  ]
+}

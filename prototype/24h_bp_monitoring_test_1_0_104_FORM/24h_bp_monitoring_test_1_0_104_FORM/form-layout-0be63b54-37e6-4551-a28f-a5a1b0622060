@@ -1,0 +1,220 @@
+[
+  {
+    "col": 1,
+    "row": 1,
+    "width": 12,
+    "height": 2,
+    "children": [
+      {
+        "id": "generic-coded_text-6864170"
+      },
+      {
+        "id": "generic-rich_text-4489902"
+      },
+      {
+        "id": "generic-layout_group-7335096",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "100%",
+                "children": [
+                  {
+                    "id": "generic-rich_text-5165805"
+                  },
+                  {
+                    "id": "generic-external_widget-5368280"
+                  },
+                  {
+                    "id": "generic-external_widget-6955946"
+                  },
+                  {
+                    "id": "generic-external_widget-7638531"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-rich_text-4522909"
+      },
+      {
+        "id": "generic-external_widget-1983562"
+      },
+      {
+        "id": "generic-external_widget-5368689"
+      },
+      {
+        "id": "generic-external_widget-7896327"
+      },
+      {
+        "id": "generic-layout_group-9070453",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "100%",
+                "children": [
+                  {
+                    "id": "generic-rich_text-3375903"
+                  },
+                  {
+                    "id": "generic-column_list-8197084",
+                    "rows": [
+                      {
+                        "cols": [
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-1186362"
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-348302"
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-3481044",
+                                "rows": []
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-7779669",
+                                "rows": []
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-9874062",
+                                "rows": []
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-7871956",
+                                "rows": []
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-5172382",
+                                "rows": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "cols": [
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-1056448"
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-8963247"
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-4585821",
+                                "rows": []
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-927791"
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-9874549",
+                                "rows": []
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-9441014",
+                                "rows": []
+                              }
+                            ]
+                          },
+                          {
+                            "unit": "fr",
+                            "width": "1",
+                            "children": [
+                              {
+                                "id": "generic-rich_text-420936",
+                                "rows": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "rows": []
+  }
+]

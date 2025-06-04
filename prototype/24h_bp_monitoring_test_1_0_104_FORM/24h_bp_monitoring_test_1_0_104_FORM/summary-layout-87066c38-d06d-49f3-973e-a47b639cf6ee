@@ -1,0 +1,216 @@
+{
+  "col": 1,
+  "row": 1,
+  "width": 12,
+  "height": 2,
+  "children": [
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/additional_data/reason_for_encounter/presenting_problem"
+    },
+    {
+      "id": "generic-rich_text-1557377"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time"
+    },
+    {
+      "id": "generic-rich_text-1915425"
+    },
+    {
+      "id": "generic-time-1729748"
+    },
+    {
+      "id": "generic-time-6282458"
+    },
+    {
+      "id": "generic-quantity-6751850"
+    },
+    {
+      "id": "generic-quantity-15341"
+    },
+    {
+      "id": "generic-rich_text-1489854"
+    },
+    {
+      "id": "generic-time-1351885"
+    },
+    {
+      "id": "generic-time-8107171"
+    },
+    {
+      "id": "generic-quantity-6840029"
+    },
+    {
+      "id": "generic-quantity-5782160"
+    },
+    {
+      "id": "generic-rich_text-4405148"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_daytime_measurements"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_nighttime_measurements"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/total_count_of_the_measurements"
+    },
+    {
+      "id": "generic-rich_text-44268"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/systolic"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/diastolic"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/math_function"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/width"
+    },
+    {
+      "id": "generic-notification-2730771"
+    },
+    {
+      "id": "generic-rich_text-8012334"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/rate"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/math_function"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/width"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/time"
+    },
+    {
+      "id": "generic-rich_text-5874165"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/systolic"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/diastolic"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/math_function"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/sleep_status"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/time"
+    },
+    {
+      "id": "generic-notification-5540572"
+    },
+    {
+      "id": "generic-rich_text-5856754"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/systolic"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/diastolic"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/math_function"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/sleep_status"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/width"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/time"
+    },
+    {
+      "id": "generic-notification-1831023"
+    },
+    {
+      "id": "generic-spacer-9964207"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/nightly_blood_pressure_dipping/systolic_dip"
+    },
+    {
+      "id": "generic-notification-5786029"
+    },
+    {
+      "id": "generic-spacer-1678891"
+    },
+    {
+      "id": "generic-rich_text-5177860"
+    },
+    {
+      "id": "generic-rich_text-5511017"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/central_systolic_blood_pressure"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/central_diastolic_blood_pressure"
+    },
+    {
+      "id": "generic-spacer-1225542"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/augmentation_index_at_heart_rate_75_per_minute"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/cardiac_output"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/peripheral_resistance"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/reflection_coefficient"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/pulse_wave_velocity"
+    },
+    {
+      "id": "generic-rich_text-1096057"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/additional_data/age_assertion/chronological_age"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/time"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/additional_data/height_length/time"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/additional_data/body_mass_index/body_mass_index"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/additional_data/body_surface_area/body_surface_area"
+    },
+    {
+      "id": "generic-coded_text-7508207"
+    },
+    {
+      "id": "generic-rich_text-9899113"
+    },
+    {
+      "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/clinical_interpretation"
+    }
+  ],
+  "rows": []
+}

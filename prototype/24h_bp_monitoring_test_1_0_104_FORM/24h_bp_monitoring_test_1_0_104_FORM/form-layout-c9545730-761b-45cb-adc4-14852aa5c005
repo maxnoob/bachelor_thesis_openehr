@@ -1,0 +1,45 @@
+[
+  {
+    "col": 1,
+    "row": 1,
+    "width": 12,
+    "height": 2,
+    "children": [
+      {
+        "id": "generic-coded_text-7508207"
+      },
+      {
+        "id": "generic-rich_text-9899113"
+      },
+      {
+        "id": "generic-layout_group-4855253",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-coded_text-5733080"
+                  }
+                ]
+              },
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-coded_text-9074209"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/clinical_interpretation"
+      }
+    ],
+    "rows": []
+  }
+]

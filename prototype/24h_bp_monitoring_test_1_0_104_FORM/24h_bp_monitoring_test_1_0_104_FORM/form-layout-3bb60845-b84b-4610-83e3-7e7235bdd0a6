@@ -1,0 +1,75 @@
+[
+  {
+    "col": 1,
+    "row": 1,
+    "width": 12,
+    "height": 2,
+    "children": [
+      {
+        "id": "generic-coded_text-692796"
+      },
+      {
+        "id": "generic-layout_group-4525372",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "generic-rich_text-1096057"
+                  }
+                ]
+              },
+              {
+                "width": "50%",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "generic-layout_group-5366448",
+        "rows": [
+          {
+            "cols": [
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/additional_data/age_assertion/chronological_age"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/weight"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/additional_data/body_weight/time"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/additional_data/height_length/height_length"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/additional_data/height_length/time"
+                  }
+                ]
+              },
+              {
+                "width": "50%",
+                "children": [
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/additional_data/body_mass_index/body_mass_index"
+                  },
+                  {
+                    "id": "outpatient-24h-blood-pressure-monitoring/additional_data/body_surface_area/body_surface_area"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "rows": []
+  }
+]

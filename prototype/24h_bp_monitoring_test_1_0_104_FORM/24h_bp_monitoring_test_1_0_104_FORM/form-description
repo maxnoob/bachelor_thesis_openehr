@@ -1,0 +1,4746 @@
+{
+  "min": 0,
+  "localizedNamesIncludeVariables": false,
+  "children": [
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_CODED_TEXT",
+      "max": 1,
+      "name": "Select",
+      "id": "generic-coded_text-4890863",
+      "formId": "generic-coded_text-4890863",
+      "alias": "Navigation",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {
+          "conditions": "{\"formId\":\"generic-coded_text-4890863\",\"expressions\":[{\"id\":\"74ca124e-7495-43a3-b3a2-03478baa831b\",\"statements\":[],\"actions\":[],\"cases\":[{\"statements\":[],\"actions\":[],\"id\":\"eea7ad14-3814-42d2-8819-08e141945f06\",\"valid\":true}],\"events\":[{\"id\":\"6dd195ea-bb40-4d31-9f53-9cdc04c2a835\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"0e855bdd-65e9-4ccd-9078-e0284fd721ff\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}",
+          "ehrFormScript": "\"console.log(\\\"Nav bar script loaded\\\");\\n\\n// set the template path for the field, where the nav bar should be. this has to be done on every page per form.\\nconst navField = 'generic-coded_text-4890863'\\n\\n// get the ids from the code section </> under \\\"Form pages\\\"\\nconst pages = [\\n  { label: \\\"24h-Blutdruck & PWA\\\", id: \\\"1cf8d383-25d3-496f-a213-e8303984fe7a\\\" },\\n  { label: \\\"Personendaten\\\", id: \\\"3bb60845-b84b-4610-83e3-7e7235bdd0a6\\\" },\\n  { label: \\\"Beurteilung\\\", id: \\\"c9545730-761b-45cb-adc4-14852aa5c005\\\" },\\n  { label: \\\"Verlauf\\\", id: \\\"0be63b54-37e6-4551-a28f-a5a1b0622060\\\"}\\n];\\n\\npages.forEach(page => {\\n  api.addFormElementInput(navField, {\\n    label: page.label,\\n    code: page.id\\n  });\\n});\\n\\n\\napi.addListener(navField, 'CHANGE', function() {\\n    const selectedPage = api.getFieldValue(navField, undefined, undefined, undefined, false);\\n    console.log(\\\"Selected value:\\\", selectedPage);\\n    // wait for the object to be initiliazed to avoid TypeError.\\n    if (selectedPage && selectedPage.code) {\\n    api.goTo(selectedPage.code);\\n    api.setFieldValue(navField, null); // otherwise odd behaviour with selected buttons in nav bar occurs\\n  }\\n}, { onInitialValueSet: true });\""
+        },
+        "advanced": {
+          "persistentGeneric": true,
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "top"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {
+          "hidden": false
+        },
+        "field": {
+          "code": {
+            "presentation": "BUTTONGROUP",
+            "columns": 2,
+            "disabled": false,
+            "hidden": false,
+            "readonly": false,
+            "buttonGroupColumnLayout": false
+          }
+        }
+      },
+      "datasource": {
+        "force": false,
+        "source": "",
+        "bindings": {},
+        "pathParameters": {
+          "{codeSystem}": ""
+        }
+      },
+      "localizedNames": {
+        "en": "<p>Navigation</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": [
+        {
+          "list": [],
+          "type": "CODED_TEXT",
+          "suffix": "code",
+          "listOpen": false
+        }
+      ]
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "id": "presenting_problem",
+      "name": "Presenting problem",
+      "localizedName": "Presenting problem",
+      "rmType": "DV_TEXT",
+      "nodeId": "at0004",
+      "max": 1,
+      "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Additional data']/items[openEHR-EHR-EVALUATION.reason_for_encounter.v1]/data[at0001]/items[at0004]/value",
+      "formId": "outpatient-24h-blood-pressure-monitoring/additional_data/reason_for_encounter/presenting_problem",
+      "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+      "alias": "Fragestellung",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {
+          "code": {
+            "presentation": "COMBOBOX",
+            "disabled": false,
+            "hidden": false,
+            "readonly": false
+          }
+        }
+      },
+      "datasource": {
+        "force": false,
+        "source": "",
+        "bindings": {},
+        "pathParameters": {
+          "{codeSystem}": ""
+        }
+      },
+      "localizedNames": {
+        "en": "<p>Fragestellung</p>"
+      },
+      "localizedDescriptions": {
+        "en": "Identification of the clinical or social problem motivating the subject of care to seeking healthcare."
+      },
+      "inputs": [
+        {
+          "list": [
+            {
+              "value": "Blutdruckeinstellung unter Therapie?",
+              "label": "Blutdruckeinstellung unter Therapie?"
+            },
+            {
+              "value": "Hypotone Phasen?",
+              "label": "Hypotone Phasen?"
+            },
+            {
+              "value": "Schwangerschaftshypertonie?",
+              "label": "Schwangerschaftshypertonie?"
+            },
+            {
+              "value": "Blutdruckverlauf nach kontrollierter Medikamenteneinnahme.",
+              "label": "Blutdruckverlauf nach kontrollierter Medikamenteneinnahme."
+            }
+          ],
+          "type": "TEXT",
+          "listOpen": true,
+          "validation": {
+            "range": {}
+          }
+        }
+      ]
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-1557377",
+      "formId": "generic-rich_text-1557377",
+      "alias": "Rich text",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<h3>Blutdruck Mittelwerte</h3>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "time",
+          "name": "Time",
+          "rmType": "DV_DATE_TIME",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at1042]/time",
+          "inContext": true,
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Datum der Messung",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"expressions\":[{\"id\":\"9408889f-77ad-4783-9a49-1e3a2eb76a51\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"6860d3e2-7deb-4955-8349-75a05218b2a2\",\"valid\":false}],\"actions\":[],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"6860d3e2-7deb-4955-8349-75a05218b2a2\",\"valid\":false}],\"actions\":[],\"id\":\"17f9edc8-1afd-4835-8990-04eb72e25fa2\",\"valid\":true}],\"events\":[{\"id\":\"067c4b57-612d-42a1-873e-2f1589e9509d\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"75cd9a81-db52-4c77-8d3e-f6e6385bcfff\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "showDateFieldTodayButton": true,
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_6"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "time": {
+                "presentation": null,
+                "disabled": false,
+                "hidden": true,
+                "readonly": false
+              }
+            }
+          },
+          "localizedNames": {
+            "en": "<p>Datum der Messung</p>"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [],
+              "type": "DATETIME",
+              "validation": {
+                "range": {}
+              },
+              "defaultValue": [
+                "%currentDate%"
+              ]
+            }
+          ]
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-3459376",
+      "formId": "generic-layout_group-3459376",
+      "alias": "Group-17",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-1915425",
+      "formId": "generic-rich_text-1915425",
+      "alias": "Rich text-1",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p>Wachphase</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_TIME",
+              "max": 1,
+              "name": "Time",
+              "id": "generic-time-1729748",
+              "formId": "generic-time-1729748",
+              "alias": "awake-from",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "conditions": "{\"formId\":\"generic-time-1729748\",\"expressions\":[{\"id\":\"f21a0774-1736-45ec-a8d8-fa157b1a7cb4\",\"statements\":[{\"fieldId\":\"generic-time-8107171\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"0309b795-df0a-4f44-b803-60416536a14c\",\"valid\":true}],\"actions\":[{\"target\":\"generic-time-1729748\",\"action\":\"set\",\"value\":{\"value\":\"%%generic-time-8107171%%\"},\"id\":\"633fe6a7-39a4-411f-a0fd-f0ea487be7b9\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"generic-time-8107171\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"0309b795-df0a-4f44-b803-60416536a14c\",\"valid\":true}],\"actions\":[{\"target\":\"generic-time-1729748\",\"action\":\"set\",\"value\":{\"value\":\"%%generic-time-8107171%%\"},\"id\":\"633fe6a7-39a4-411f-a0fd-f0ea487be7b9\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"2cf18efd-b2b1-4f5d-be04-5253e5c31615\",\"valid\":true}],\"events\":[{\"id\":\"058de5f7-ce39-43e6-8173-aa4d0b32b90c\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"dcb8222f-6054-4842-8a45-2e019ba71372\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+                },
+                "advanced": {
+                  "persistentGeneric": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {
+                  "hidden": false
+                }
+              },
+              "localizedNames": {
+                "en": "<p>von</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "type": "TIME"
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_TIME",
+              "max": 1,
+              "name": "Time",
+              "id": "generic-time-6282458",
+              "formId": "generic-time-6282458",
+              "alias": "awake-to",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "conditions": "{\"formId\":\"generic-time-6282458\",\"expressions\":[{\"id\":\"c4ec046f-82f9-40ac-a36f-f2d321fa1124\",\"statements\":[{\"fieldId\":\"generic-time-1351885\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"8b9e7951-d9eb-49de-92df-ba131e75838e\",\"valid\":true}],\"actions\":[{\"target\":\"generic-time-6282458\",\"action\":\"set\",\"value\":{\"value\":\"%%generic-time-1351885%%\"},\"id\":\"dbbb4f03-8b77-45ce-a40f-a79e96880237\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"generic-time-1351885\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"8b9e7951-d9eb-49de-92df-ba131e75838e\",\"valid\":true}],\"actions\":[{\"target\":\"generic-time-6282458\",\"action\":\"set\",\"value\":{\"value\":\"%%generic-time-1351885%%\"},\"id\":\"dbbb4f03-8b77-45ce-a40f-a79e96880237\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"efb0a0ad-eddd-415b-badf-cae906ca5357\",\"valid\":true}],\"events\":[{\"id\":\"d74cc941-49c1-4359-ad1b-2f5d758bdf4f\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"6b307768-10a5-4513-9d47-208391739ce0\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+                },
+                "advanced": {
+                  "persistentGeneric": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>bis</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "type": "TIME"
+                }
+              ]
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-1239030",
+          "formId": "generic-layout_group-1239030",
+          "alias": "Group-7",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_12"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_QUANTITY",
+              "max": 1,
+              "name": "Quantity",
+              "id": "generic-quantity-6751850",
+              "formId": "generic-quantity-6751850",
+              "alias": "awake-duration-hours",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "ehrFormScript": "\"// set the template path for the time and duration fields (different for awake and asleep)\\nconst fromField = 'generic-time-1729748'\\nconst toField = 'generic-time-6282458'\\nconst durationHours = 'awake_duration_hours' // workaround with internal variable, since setting the field value directly seems to not work correctly\\nconst durationMinutes = 'awake_duration_minutes'\\n// const daytimeInterval = 'outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width'\\n\\napi.addListener(fromField, 'CHANGE', computeDuration, { onInitialValueSet: true });\\napi.addListener(toField, 'CHANGE', computeDuration, { onInitialValueSet: true });\\n\\nfunction computeDuration() {\\n    const start = api.getFieldValue(fromField, undefined, undefined, undefined, true);\\n    const end = api.getFieldValue(toField, undefined, undefined, undefined, true);\\n    console.log(\\\"Start time: \\\" + start + \\\"; End time: \\\" + end);\\n\\n    if (!start || !end) return;\\n\\n    const [startHour, startMinute] = start.split(':').map(Number); // split the first time field into hours and minutes\\n    const [endHour, endMinute] = end.split(':').map(Number); // split the second time field into hours and minutes\\n\\n    let startMinutes = startHour * 60 + startMinute;\\n    let endMinutes = endHour * 60 + endMinute;\\n    if (endMinutes < startMinutes) endMinutes += 24 * 60; // handle midnight wrap\\n\\n    const totalMinutes = endMinutes - startMinutes;\\n    const fullHours = Math.floor(totalMinutes / 60);\\n    const remainingMinutes = totalMinutes % 60;\\n\\n    console.log(\\\"Duration: \\\" + fullHours + \\\"h \\\" + remainingMinutes + \\\"min\\\");\\n\\n    api.setVariableValue(durationHours, fullHours);\\n    api.setVariableValue(durationMinutes, remainingMinutes);\\n    \\n    // console.log(\\\"Width field value: \\\" + api.getFieldValue('outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width')) // just returns [object]\\n    // api.setFieldValue(durationField, {magnitude: hours, units: 'h'}, undefined, undefined, undefined, undefined);\\n    // console.log(\\\"Saved value: \\\" + api.getFieldValue(durationField, undefined, undefined, undefined, true));\\n    //api.setFieldValue(daytimeInterval, {'hours': hours, 'minutes': minutes}, undefined, undefined, undefined, undefined);\\n}\"",
+                  "conditions": "{\"formId\":\"generic-quantity-6751850\",\"expressions\":[{\"id\":\"e6387775-d287-4d26-b05c-9caef8c7823b\",\"statements\":[{\"fieldId\":\"var-awake_duration_hours\",\"condition\":{\"operator\":\"changes\"},\"id\":\"790a223e-1be2-4998-af59-ce9425ed9eae\",\"valid\":true}],\"actions\":[{\"target\":\"generic-quantity-6751850\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%awake_duration_hours%\",\"value\":\"%awake_duration_hours%\"},\"id\":\"aee78f2a-18b0-4a76-b1d4-390b553c3ecd\",\"valid\":false,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[],\"actions\":[{\"target\":\"generic-quantity-6751850\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%awake_duration_hours%\",\"value\":\"%awake_duration_hours%\"},\"id\":\"aee78f2a-18b0-4a76-b1d4-390b553c3ecd\",\"valid\":false,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"590cbb89-ef6f-47b3-9a80-4645d6b3c974\",\"valid\":true}],\"events\":[{\"id\":\"e1e23cfd-7a31-44e6-a497-d7bf004d5623\",\"fieldId\":\"var-awake_duration_hours\",\"type\":\"CHANGE\",\"valid\":true}]}]}"
+                },
+                "advanced": {
+                  "readonly": true,
+                  "persistentGeneric": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {
+                  "hidden": true
+                },
+                "field": {
+                  "unit": {
+                    "presentation": null,
+                    "disabled": false,
+                    "hidden": false,
+                    "readonly": true
+                  }
+                }
+              },
+              "localizedNames": {
+                "en": "<p>Dauer</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "h",
+                      "label": "h",
+                      "stale": false,
+                      "custom": true,
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%h:::h%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_QUANTITY",
+              "max": 1,
+              "name": "Quantity",
+              "id": "generic-quantity-15341",
+              "formId": "generic-quantity-15341",
+              "alias": "awake-duration-minutes",
+              "nodeId": "generic-quantity-15341",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "ehrFormScript": "\"\"",
+                  "conditions": "{\"formId\":\"generic-quantity-15341\",\"expressions\":[{\"id\":\"fedb8e01-86d8-4ea3-ab19-928d81ba68b5\",\"statements\":[{\"fieldId\":\"var-awake_duration_minutes\",\"condition\":{\"operator\":\"changes\"},\"id\":\"c8143c4a-d1f5-46cd-b7d2-38f3d470d069\",\"valid\":true}],\"actions\":[{\"target\":\"generic-quantity-15341\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%awake_duration_minutes%\",\"value\":\"%awake_duration_minutes%\"},\"id\":\"eb733d2e-46a8-4a41-8d72-fff5c34ca5c8\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[],\"actions\":[{\"target\":\"generic-quantity-15341\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%awake_duration_minutes%\",\"value\":\"%awake_duration_minutes%\"},\"id\":\"eb733d2e-46a8-4a41-8d72-fff5c34ca5c8\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"984396a2-ca75-48d9-b336-6d57b0563714\",\"valid\":true}],\"events\":[{\"id\":\"b5034de2-a6e5-440d-8a2e-53fc7d1dc9f2\",\"fieldId\":\"var-awake_duration_minutes\",\"type\":\"CHANGE\",\"valid\":true}]}]}"
+                },
+                "advanced": {
+                  "readonly": true,
+                  "persistentGeneric": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {
+                  "hidden": true
+                },
+                "field": {
+                  "unit": {
+                    "presentation": null,
+                    "disabled": false,
+                    "hidden": false,
+                    "readonly": true
+                  }
+                }
+              },
+              "localizedNames": {
+                "en": "<p>Dauer </p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "min",
+                      "label": "min",
+                      "stale": false,
+                      "custom": true,
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "min"
+                  ]
+                }
+              ]
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-1300879",
+          "formId": "generic-layout_group-1300879",
+          "alias": "Group-19",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-952820",
+      "formId": "generic-layout_group-952820",
+      "alias": "Group",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_7"
+        },
+        "layout": {
+          "label": {
+            "align": "top"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {
+          "hidden": false
+        },
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-1489854",
+      "formId": "generic-rich_text-1489854",
+      "alias": "Rich text-2",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p>Schlafphase</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_TIME",
+              "max": 1,
+              "name": "Time",
+              "id": "generic-time-1351885",
+              "formId": "generic-time-1351885",
+              "alias": "asleep-from",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "conditions": "{\"formId\":\"generic-time-1351885\",\"expressions\":[{\"id\":\"218372a7-3e7d-4404-ae12-79474c19724f\",\"statements\":[{\"fieldId\":\"generic-time-6282458\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"1d9bb82b-a62a-4199-94e6-2cbf8e5f98ea\",\"valid\":true}],\"actions\":[{\"target\":\"generic-time-1351885\",\"action\":\"set\",\"value\":{\"value\":\"%%generic-time-6282458%%\"},\"id\":\"9b8f539f-03a0-4440-a1b9-9f22d3b819ea\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"generic-time-6282458\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"1d9bb82b-a62a-4199-94e6-2cbf8e5f98ea\",\"valid\":true}],\"actions\":[{\"target\":\"generic-time-1351885\",\"action\":\"set\",\"value\":{\"value\":\"%%generic-time-6282458%%\"},\"id\":\"9b8f539f-03a0-4440-a1b9-9f22d3b819ea\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"7c7cc034-5be6-49e5-b6fc-a24add5761f4\",\"valid\":true}],\"events\":[{\"id\":\"dbd6fb04-b473-47a7-b7b6-c91bdb44f949\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"b30ff6f4-d92e-4333-9799-4ec123a1b27d\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+                },
+                "advanced": {
+                  "persistentGeneric": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>von</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "type": "TIME"
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_TIME",
+              "max": 1,
+              "name": "Time",
+              "id": "generic-time-8107171",
+              "formId": "generic-time-8107171",
+              "alias": "asleep-to",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "conditions": "{\"formId\":\"generic-time-8107171\",\"expressions\":[{\"id\":\"0e80301a-fea5-4fbc-888d-9b8aae409090\",\"statements\":[{\"fieldId\":\"generic-time-1729748\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"fa434462-2cf6-4943-a923-7361fb2db8ed\",\"valid\":true}],\"actions\":[{\"target\":\"generic-time-8107171\",\"action\":\"set\",\"value\":{\"value\":\"%%generic-time-1729748%%\"},\"id\":\"b8ccf524-ed66-44ce-a0bb-add3eb785054\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"generic-time-1729748\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"fa434462-2cf6-4943-a923-7361fb2db8ed\",\"valid\":true}],\"actions\":[{\"target\":\"generic-time-8107171\",\"action\":\"set\",\"value\":{\"value\":\"%%generic-time-1729748%%\"},\"id\":\"b8ccf524-ed66-44ce-a0bb-add3eb785054\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"da00b472-22d8-4e5f-8e88-5728e23cf54a\",\"valid\":true}],\"events\":[{\"id\":\"83abc2e8-ef0b-44ab-880e-3d0efbc1b618\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"056a8de5-68b5-4fe3-a77a-be22bbd2a0f6\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+                },
+                "advanced": {
+                  "persistentGeneric": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>bis</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "type": "TIME"
+                }
+              ]
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-9073681",
+          "formId": "generic-layout_group-9073681",
+          "alias": "Group-8",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_12"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_QUANTITY",
+              "max": 1,
+              "name": "Quantity",
+              "id": "generic-quantity-6840029",
+              "formId": "generic-quantity-6840029",
+              "alias": "asleep-duration-hours",
+              "nodeId": "generic-quantity-6840029",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "ehrFormScript": "\"// set the template path for the time and duration fields (different for awake and asleep)\\nconst fromField = 'generic-time-1351885'\\nconst toField = 'generic-time-8107171'\\nconst durationHours = 'asleep_duration_hours' // workaround with internal variable, since setting the field value directly seems to not work correctly\\nconst durationMinutes = 'asleep_duration_minutes'\\n// const daytimeInterval = 'outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width'\\n\\napi.addListener(fromField, 'CHANGE', computeDuration, { onInitialValueSet: true });\\napi.addListener(toField, 'CHANGE', computeDuration, { onInitialValueSet: true });\\n\\nfunction computeDuration() {\\n    const start = api.getFieldValue(fromField, undefined, undefined, undefined, true);\\n    const end = api.getFieldValue(toField, undefined, undefined, undefined, true);\\n    console.log(\\\"Start time: \\\" + start + \\\"; End time: \\\" + end);\\n\\n    if (!start || !end) return;\\n\\n    const [startHour, startMinute] = start.split(':').map(Number); // split the first time field into hours and minutes\\n    const [endHour, endMinute] = end.split(':').map(Number); // split the second time field into hours and minutes\\n\\n    let startMinutes = startHour * 60 + startMinute;\\n    let endMinutes = endHour * 60 + endMinute;\\n    if (endMinutes < startMinutes) endMinutes += 24 * 60; // handle midnight wrap\\n\\n    const totalMinutes = endMinutes - startMinutes;\\n    const fullHours = Math.floor(totalMinutes / 60);\\n    const remainingMinutes = totalMinutes % 60;\\n\\n    console.log(\\\"Duration: \\\" + fullHours + \\\"h \\\" + remainingMinutes + \\\"min\\\");\\n\\n    api.setVariableValue(durationHours, fullHours);\\n    api.setVariableValue(durationMinutes, remainingMinutes);\\n    \\n    // console.log(\\\"Width field value: \\\" + api.getFieldValue('outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width')) // just returns [object]\\n    // api.setFieldValue(durationField, {magnitude: hours, units: 'h'}, undefined, undefined, undefined, undefined);\\n    // console.log(\\\"Saved value: \\\" + api.getFieldValue(durationField, undefined, undefined, undefined, true));\\n    //api.setFieldValue(daytimeInterval, {'hours': hours, 'minutes': minutes}, undefined, undefined, undefined, undefined);\\n}\"",
+                  "conditions": "{\"formId\":\"generic-quantity-6840029\",\"expressions\":[{\"id\":\"ccca02d1-9b58-4c4c-95f9-44884b1dc917\",\"statements\":[{\"fieldId\":\"var-asleep_duration_hours\",\"condition\":{\"operator\":\"changes\"},\"id\":\"a250d5a3-9f02-425e-8981-82fe85505c2c\",\"valid\":true}],\"actions\":[{\"target\":\"generic-quantity-6840029\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%asleep_duration_hours%\",\"value\":\"%asleep_duration_hours%\"},\"id\":\"f649be4c-daf4-42f5-8521-21bf73632c65\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[],\"actions\":[{\"target\":\"generic-quantity-6840029\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%asleep_duration_hours%\",\"value\":\"%asleep_duration_hours%\"},\"id\":\"f649be4c-daf4-42f5-8521-21bf73632c65\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"09269721-1f99-4a6d-9da6-a18037de610c\",\"valid\":true}],\"events\":[{\"id\":\"e2be24b5-4261-40d4-b443-a123ae5a8039\",\"fieldId\":\"var-asleep_duration_hours\",\"type\":\"CHANGE\",\"valid\":true}]}]}"
+                },
+                "advanced": {
+                  "readonly": true,
+                  "persistentGeneric": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {
+                  "hidden": true
+                },
+                "field": {
+                  "unit": {
+                    "presentation": null,
+                    "disabled": false,
+                    "hidden": false,
+                    "readonly": true
+                  }
+                }
+              },
+              "localizedNames": {
+                "en": "<p>Dauer</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "h",
+                      "label": "h",
+                      "stale": false,
+                      "custom": true,
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%h:::h%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_QUANTITY",
+              "max": 1,
+              "name": "Quantity",
+              "id": "generic-quantity-5782160",
+              "formId": "generic-quantity-5782160",
+              "alias": "asleep-duration-minutes",
+              "nodeId": "generic-quantity-5782160",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "ehrFormScript": "\"\"",
+                  "conditions": "{\"formId\":\"generic-quantity-5782160\",\"expressions\":[{\"id\":\"e8000480-c92f-4c28-988b-a22ae9a7879a\",\"statements\":[{\"fieldId\":\"var-asleep_duration_minutes\",\"condition\":{\"operator\":\"changes\"},\"id\":\"45ffae6e-73ca-46e1-b5e5-37a836d07a01\",\"valid\":true}],\"actions\":[{\"target\":\"generic-quantity-5782160\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%asleep_duration_minutes%\",\"value\":\"%asleep_duration_minutes%\"},\"id\":\"20fa9f38-b158-4579-b973-fb1679c8d7cf\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[],\"actions\":[{\"target\":\"generic-quantity-5782160\",\"action\":\"set\",\"value\":{\"suffix\":\"magnitude\",\"magnitude\":\"%asleep_duration_minutes%\",\"value\":\"%asleep_duration_minutes%\"},\"id\":\"20fa9f38-b158-4579-b973-fb1679c8d7cf\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"9e9a3514-ccc1-48d6-a679-4f4558cb32e9\",\"valid\":true}],\"events\":[{\"id\":\"60fb4fbb-8bc3-478b-b949-9fb1d0ecf6e2\",\"fieldId\":\"var-asleep_duration_minutes\",\"type\":\"CHANGE\",\"valid\":true}]}]}"
+                },
+                "advanced": {
+                  "readonly": true,
+                  "persistentGeneric": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {
+                  "hidden": true
+                },
+                "field": {
+                  "unit": {
+                    "presentation": null,
+                    "disabled": false,
+                    "hidden": false,
+                    "readonly": true
+                  }
+                }
+              },
+              "localizedNames": {
+                "en": "<p>Dauer</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "min",
+                      "label": "min",
+                      "stale": false,
+                      "custom": true,
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "min"
+                  ]
+                }
+              ]
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-1947585",
+          "formId": "generic-layout_group-1947585",
+          "alias": "Group-19-1",
+          "nodeId": "generic-layout_group-1947585",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-2017963",
+      "formId": "generic-layout_group-2017963",
+      "alias": "Group-1",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_7"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-4405148",
+      "formId": "generic-rich_text-4405148",
+      "alias": "Rich text-10",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p>Anzahl erfolgreiche Messungen</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "count_of_daytime_measurements",
+              "name": "Count of daytime measurements",
+              "localizedName": "Count of daytime measurements",
+              "rmType": "DV_COUNT",
+              "nodeId": "at0002",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/protocol[at0011]/items[openEHR-EHR-CLUSTER.count_of_blood_pressure_measurements.v0]/items[at0002]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_daytime_measurements",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "Tag",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {
+                  "hidden": false
+                }
+              },
+              "localizedNames": {
+                "en": "<p>Tag</p>"
+              },
+              "localizedDescriptions": {
+                "en": ""
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "type": "INTEGER",
+                  "validation": {
+                    "range": {
+                      "minOp": ">"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "count_of_nighttime_measurements",
+              "name": "Count of nighttime measurements",
+              "localizedName": "Count of nighttime measurements",
+              "rmType": "DV_COUNT",
+              "nodeId": "at0001",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/protocol[at0011]/items[openEHR-EHR-CLUSTER.count_of_blood_pressure_measurements.v0]/items[at0001]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_nighttime_measurements",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "Erfolgreiche Messungen Tag [Anz.]-1",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p><span style=\"color: rgb(70, 70, 74);\">Nacht</span></p>"
+              },
+              "localizedDescriptions": {
+                "en": ""
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "type": "INTEGER",
+                  "validation": {
+                    "range": {}
+                  }
+                }
+              ]
+            },
+            {
+              "min": 1,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "total_count_of_the_measurements",
+              "name": "Total count of the measurements",
+              "localizedName": "Total count of the measurements",
+              "rmType": "DV_COUNT",
+              "nodeId": "at0003",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/protocol[at0011]/items[openEHR-EHR-CLUSTER.count_of_blood_pressure_measurements.v0]/items[at0003]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/total_count_of_the_measurements",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "Erfolgreiche Messungen Tag [Anz.]-2",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/total_count_of_the_measurements\",\"expressions\":[{\"id\":\"45beb5de-497d-4d2f-b566-e5e39d91256f\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_daytime_measurements\",\"condition\":{\"operator\":\"isvalid\"},\"relation\":{\"operator\":\"and\",\"target\":\"345afc3f-c5b7-4418-8e9e-615d867a2207\"},\"id\":\"6e3fbef6-65f1-48c9-9c8e-fabadf4c715e\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_nighttime_measurements\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"345afc3f-c5b7-4418-8e9e-615d867a2207\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/total_count_of_the_measurements\",\"action\":\"set\",\"value\":{\"value\":\"%f%CALC:::099-00-calcvkj%f% ( %%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_daytime_measurements%% + %%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_nighttime_measurements%% )\"},\"id\":\"ee2f675f-9725-4220-88a1-52ef656e3fb8\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_daytime_measurements\",\"condition\":{\"operator\":\"isvalid\"},\"relation\":{\"operator\":\"and\",\"target\":\"345afc3f-c5b7-4418-8e9e-615d867a2207\"},\"id\":\"6e3fbef6-65f1-48c9-9c8e-fabadf4c715e\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_nighttime_measurements\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"345afc3f-c5b7-4418-8e9e-615d867a2207\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/total_count_of_the_measurements\",\"action\":\"set\",\"value\":{\"value\":\"%f%CALC:::099-00-calcvkj%f% ( %%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_daytime_measurements%% + %%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/count_of_measurements/count_of_nighttime_measurements%% )\"},\"id\":\"ee2f675f-9725-4220-88a1-52ef656e3fb8\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"a7a4607a-b462-4dab-a2b8-db9ac9ad4a66\",\"valid\":true}],\"events\":[{\"id\":\"d482d791-9d08-480b-8489-ad759fd0cab5\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"002007c4-3db0-4c99-a4b4-b8e62060207b\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+                },
+                "advanced": {
+                  "readonly": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {
+                  "hidden": false
+                }
+              },
+              "localizedNames": {
+                "en": "<p><span style=\"color: rgb(70, 70, 74);\">Total</span></p>"
+              },
+              "localizedDescriptions": {
+                "en": ""
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "type": "INTEGER",
+                  "validation": {
+                    "range": {}
+                  }
+                }
+              ]
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-3758115",
+          "formId": "generic-layout_group-3758115",
+          "alias": "Group-14",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-8728343",
+      "formId": "generic-layout_group-8728343",
+      "alias": "Group-3",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_6"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-44268",
+      "formId": "generic-rich_text-44268",
+      "alias": "Rich text-3",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p>24h BD Mittelwerte</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "systolic",
+              "name": "Systolic",
+              "localizedName": "Systolic",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0004",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at1042]/data[at0003]/items[at0004]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/systolic",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "24h-syst-mean",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "top"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {
+                  "hidden": false
+                },
+                "field": {
+                  "unit": {
+                    "presentation": null,
+                    "disabled": false,
+                    "hidden": false,
+                    "readonly": false
+                  }
+                }
+              },
+              "localizedNames": {
+                "en": "<p>Systolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": "Peak systemic arterial blood pressure  - measured in systolic or contraction phase of the heart cycle."
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL",
+                  "validation": {
+                    "precision": {
+                      "minOp": ">=",
+                      "min": 0,
+                      "maxOp": "<=",
+                      "max": 0
+                    },
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<"
+                    }
+                  }
+                },
+                {
+                  "list": [
+                    {
+                      "value": "mm[Hg]",
+                      "label": "mm[Hg]",
+                      "localizedLabels": {
+                        "en": "mmHg"
+                      },
+                      "validation": {
+                        "precision": {
+                          "minOp": ">=",
+                          "min": 0,
+                          "maxOp": "<=",
+                          "max": 0
+                        },
+                        "range": {
+                          "min": 0,
+                          "minOp": ">=",
+                          "max": 1000,
+                          "maxOp": "<"
+                        }
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%mm[Hg]:::mm[Hg]%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "diastolic",
+              "name": "Diastolic",
+              "localizedName": "Diastolic",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0005",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at1042]/data[at0003]/items[at0005]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/diastolic",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "24h-diast-mean",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Diastolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": "Minimum systemic arterial blood pressure - measured in the diastolic or relaxation phase of the heart cycle."
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL",
+                  "validation": {
+                    "precision": {
+                      "minOp": ">=",
+                      "min": 0,
+                      "maxOp": "<=",
+                      "max": 0
+                    },
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<"
+                    }
+                  }
+                },
+                {
+                  "list": [
+                    {
+                      "value": "mm[Hg]",
+                      "label": "mm[Hg]",
+                      "localizedLabels": {
+                        "en": "mmHg"
+                      },
+                      "validation": {
+                        "precision": {
+                          "minOp": ">=",
+                          "min": 0,
+                          "maxOp": "<=",
+                          "max": 0
+                        },
+                        "range": {
+                          "min": 0,
+                          "minOp": ">=",
+                          "max": 1000,
+                          "maxOp": "<"
+                        }
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%mm[Hg]:::mm[Hg]%p%"
+                  ]
+                }
+              ]
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-426000",
+          "formId": "generic-layout_group-426000",
+          "alias": "Group-9",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_12"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "math_function",
+          "rmType": "DV_CODED_TEXT",
+          "nodeId": "",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at1042]/math_function",
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/math_function",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "math_function-2",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "code": {
+                "presentation": "BUTTONGROUP",
+                "columns": 2,
+                "disabled": false,
+                "hidden": false,
+                "readonly": false
+              }
+            }
+          },
+          "datasource": {
+            "force": false,
+            "source": "",
+            "bindings": {},
+            "pathParameters": {
+              "{codeSystem}": "openehr"
+            }
+          },
+          "localizedNames": {
+            "en": "math_function"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [
+                {
+                  "value": "146",
+                  "label": "mean",
+                  "localizedLabels": {
+                    "en": "mean"
+                  }
+                }
+              ],
+              "suffix": "code",
+              "type": "CODED_TEXT",
+              "terminology": "openehr",
+              "defaultValue": [
+                "%p%mean:::146%p%"
+              ]
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "width",
+          "rmType": "DV_DURATION",
+          "nodeId": "",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at1042]/width",
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/width",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "width",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "width"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [],
+              "suffix": "year",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "month",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "day",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "week",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "hour",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 24,
+                  "minOp": ">=",
+                  "max": 24,
+                  "maxOp": "<="
+                }
+              },
+              "defaultValue": [
+                "24"
+              ]
+            },
+            {
+              "list": [],
+              "suffix": "minute",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "second",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            }
+          ]
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "rmType": "GENERIC_NOTIFICATION",
+          "max": 1,
+          "name": "Notification",
+          "id": "generic-notification-2730771",
+          "formId": "generic-notification-2730771",
+          "alias": "Notification-24h-mean-values",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"generic-notification-2730771\",\"expressions\":[{\"id\":\"a0e811bb-0173-4e87-9b43-e4ba394e7633\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/diastolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"80\",\"label\":\"80\",\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"or\",\"target\":\"18a7024e-ef6a-4832-ab97-851ddb7f57f9\"},\"id\":\"72d0df2b-8fe1-4c1c-a64b-847ab88b9e90\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/systolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"130\",\"label\":\"130\",\"suffix\":\"magnitude\"}},\"id\":\"18a7024e-ef6a-4832-ab97-851ddb7f57f9\",\"valid\":true}],\"actions\":[{\"target\":\"generic-notification-2730771\",\"action\":\"show\",\"id\":\"826de161-e857-4237-b339-2c831dfe225c\",\"valid\":true,\"pureValueObject\":true}],\"otherwise\":[{\"target\":\"generic-notification-2730771\",\"action\":\"hide\",\"id\":\"50a39ffb-ed3c-41f6-a41f-106def008970\",\"valid\":true,\"pureValueObject\":true}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/diastolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"80\",\"label\":\"80\",\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"or\",\"target\":\"18a7024e-ef6a-4832-ab97-851ddb7f57f9\"},\"id\":\"72d0df2b-8fe1-4c1c-a64b-847ab88b9e90\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/systolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"130\",\"label\":\"130\",\"suffix\":\"magnitude\"}},\"id\":\"18a7024e-ef6a-4832-ab97-851ddb7f57f9\",\"valid\":true}],\"actions\":[{\"target\":\"generic-notification-2730771\",\"action\":\"show\",\"id\":\"826de161-e857-4237-b339-2c831dfe225c\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"0abc232e-92bc-4d48-a101-7c79c6f8940c\",\"valid\":true},{\"statements\":[],\"actions\":[{\"target\":\"generic-notification-2730771\",\"action\":\"hide\",\"id\":\"50a39ffb-ed3c-41f6-a41f-106def008970\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"3f30d4fc-9bad-4a85-9cc3-f08a0b0ec4e3\",\"valid\":true}],\"events\":[{\"id\":\"36d3056e-2697-4257-8625-3aa04a06b2c3\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"4203a411-1a85-429b-9c8a-80a80a051550\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "hidden": true,
+              "notificationType": "DRAFT",
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "<p>Norm:‍ systolisch &lt; 130 mmHg; diastolisch &lt; 80 mmHg</p>"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-3827627",
+      "formId": "generic-layout_group-3827627",
+      "alias": "Group-4",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_6"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-8012334",
+      "formId": "generic-rich_text-8012334",
+      "alias": "Rich text-4",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p>24h Mittelwert Herzfrequenz</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "id": "rate",
+      "name": "Rate",
+      "localizedName": "Rate",
+      "rmType": "DV_QUANTITY",
+      "nodeId": "at0004",
+      "max": 1,
+      "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/data[at0002]/events[at0003,'24 hour average']/data[at0001]/items[at0004]/value",
+      "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/rate",
+      "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+      "alias": "Herzfrequenz",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_6"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p>Herzfrequenz</p>"
+      },
+      "localizedDescriptions": {
+        "en": "The rate of the pulse or heart beat, measured in beats per minute."
+      },
+      "inputs": [
+        {
+          "list": [],
+          "suffix": "magnitude",
+          "type": "DECIMAL",
+          "validation": {
+            "precision": {
+              "minOp": ">=",
+              "min": 0,
+              "maxOp": "<=",
+              "max": 0
+            },
+            "range": {
+              "min": 0,
+              "minOp": ">=",
+              "max": 400,
+              "maxOp": "<"
+            }
+          }
+        },
+        {
+          "list": [
+            {
+              "value": "/min",
+              "label": "/min",
+              "validation": {
+                "precision": {
+                  "minOp": ">=",
+                  "min": 0,
+                  "maxOp": "<=",
+                  "max": 0
+                },
+                "range": {
+                  "min": 0,
+                  "minOp": ">=",
+                  "max": 400,
+                  "maxOp": "<"
+                }
+              }
+            }
+          ],
+          "suffix": "unit",
+          "type": "CODED_TEXT",
+          "defaultValue": [
+            "%p%/min:::/min%p%"
+          ]
+        }
+      ]
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "id": "math_function",
+      "rmType": "DV_CODED_TEXT",
+      "nodeId": "",
+      "max": 1,
+      "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/data[at0002]/events[at0003,'24 hour average']/math_function",
+      "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/math_function",
+      "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+      "alias": "math_function-3",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "hidden": true,
+          "readonly": true,
+          "showCode": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {
+          "146": {
+            "presentation": null,
+            "disabled": false,
+            "hidden": false,
+            "readonly": false
+          },
+          "code": {
+            "presentation": "BUTTONGROUP",
+            "columns": 2,
+            "disabled": false,
+            "hidden": false,
+            "readonly": false
+          }
+        }
+      },
+      "datasource": {
+        "force": false,
+        "source": "",
+        "bindings": {},
+        "pathParameters": {
+          "{codeSystem}": "openehr"
+        }
+      },
+      "localizedNames": {
+        "en": "math_function"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": [
+        {
+          "list": [
+            {
+              "value": "146",
+              "label": "mean",
+              "localizedLabels": {
+                "en": "mean"
+              }
+            }
+          ],
+          "suffix": "code",
+          "type": "CODED_TEXT",
+          "terminology": "openehr",
+          "defaultValue": [
+            "%p%mean:::146%p%"
+          ]
+        }
+      ]
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "id": "width",
+      "rmType": "DV_DURATION",
+      "nodeId": "",
+      "max": 1,
+      "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/data[at0002]/events[at0003,'24 hour average']/width",
+      "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/width",
+      "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+      "alias": "width-1",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "hidden": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "width"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": [
+        {
+          "list": [],
+          "suffix": "year",
+          "type": "INTEGER",
+          "validation": {
+            "range": {
+              "min": 0,
+              "minOp": ">="
+            }
+          }
+        },
+        {
+          "list": [],
+          "suffix": "month",
+          "type": "INTEGER",
+          "validation": {
+            "range": {
+              "min": 0,
+              "minOp": ">="
+            }
+          }
+        },
+        {
+          "list": [],
+          "suffix": "day",
+          "type": "INTEGER",
+          "validation": {
+            "range": {
+              "min": 0,
+              "minOp": ">="
+            }
+          }
+        },
+        {
+          "list": [],
+          "suffix": "week",
+          "type": "INTEGER",
+          "validation": {
+            "range": {
+              "min": 0,
+              "minOp": ">="
+            }
+          }
+        },
+        {
+          "list": [],
+          "suffix": "hour",
+          "type": "INTEGER",
+          "validation": {
+            "range": {
+              "min": 24,
+              "minOp": ">=",
+              "max": 24,
+              "maxOp": "<="
+            }
+          },
+          "defaultValue": [
+            "24"
+          ]
+        },
+        {
+          "list": [],
+          "suffix": "minute",
+          "type": "INTEGER",
+          "validation": {
+            "range": {
+              "min": 0,
+              "minOp": ">="
+            }
+          }
+        },
+        {
+          "list": [],
+          "suffix": "second",
+          "type": "INTEGER",
+          "validation": {
+            "range": {
+              "min": 0,
+              "minOp": ">="
+            }
+          }
+        }
+      ]
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "id": "time",
+      "name": "Time",
+      "rmType": "DV_DATE_TIME",
+      "max": 1,
+      "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/data[at0002]/events[at0003,'24 hour average']/time",
+      "inContext": true,
+      "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/time",
+      "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+      "alias": "Time-heartrate",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {
+          "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/time\",\"expressions\":[{\"id\":\"10797052-70ab-4d29-ab5e-1a60e1bf77b9\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"05beb04b-29c2-4f4e-b068-5c8d22088d99\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"a6f2a7f3-d377-4687-9b67-256779b0b5fd\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"05beb04b-29c2-4f4e-b068-5c8d22088d99\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"a6f2a7f3-d377-4687-9b67-256779b0b5fd\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"d2b040f1-6506-4191-a3c9-e5c09f04bb2f\",\"valid\":true}],\"events\":[{\"id\":\"ae19d522-812f-420e-9c0b-1056ad777ed3\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"e33e4956-4f21-4225-bdbc-400d14f0f134\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+        },
+        "advanced": {
+          "hidden": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "Time"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": [
+        {
+          "list": [],
+          "type": "DATETIME",
+          "validation": {
+            "range": {}
+          }
+        }
+      ]
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-5874165",
+      "formId": "generic-rich_text-5874165",
+      "alias": "Rich text-5",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p>Tagesmittelwert Blutdruck</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "systolic",
+              "name": "Systolic",
+              "localizedName": "Systolic",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0004",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour daytime average']/data[at0003]/items[at0004]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/systolic",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "day-syst-mean",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Systolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": "Peak systemic arterial blood pressure  - measured in systolic or contraction phase of the heart cycle."
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL",
+                  "validation": {
+                    "precision": {
+                      "minOp": ">=",
+                      "min": 0,
+                      "maxOp": "<=",
+                      "max": 0
+                    },
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<"
+                    }
+                  }
+                },
+                {
+                  "list": [
+                    {
+                      "value": "mm[Hg]",
+                      "label": "mm[Hg]",
+                      "localizedLabels": {
+                        "en": "mmHg"
+                      },
+                      "validation": {
+                        "precision": {
+                          "minOp": ">=",
+                          "min": 0,
+                          "maxOp": "<=",
+                          "max": 0
+                        },
+                        "range": {
+                          "min": 0,
+                          "minOp": ">=",
+                          "max": 1000,
+                          "maxOp": "<"
+                        }
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%mm[Hg]:::mm[Hg]%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 1,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "diastolic",
+              "name": "Diastolic",
+              "localizedName": "Diastolic",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0005",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour daytime average']/data[at0003]/items[at0005]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/diastolic",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "day-diast-mean",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "initialFocus": true,
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Diastolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": "Minimum systemic arterial blood pressure - measured in the diastolic or relaxation phase of the heart cycle."
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL",
+                  "validation": {
+                    "precision": {
+                      "minOp": ">=",
+                      "min": 0,
+                      "maxOp": "<=",
+                      "max": 0
+                    },
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<"
+                    }
+                  }
+                },
+                {
+                  "list": [
+                    {
+                      "value": "mm[Hg]",
+                      "label": "mm[Hg]",
+                      "localizedLabels": {
+                        "en": "mmHg"
+                      },
+                      "validation": {
+                        "precision": {
+                          "minOp": ">=",
+                          "min": 0,
+                          "maxOp": "<=",
+                          "max": 0
+                        },
+                        "range": {
+                          "min": 0,
+                          "minOp": ">=",
+                          "max": 1000,
+                          "maxOp": "<"
+                        }
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%mm[Hg]:::mm[Hg]%p%"
+                  ]
+                }
+              ]
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-6546487",
+          "formId": "generic-layout_group-6546487",
+          "alias": "Group-10",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_12"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "math_function",
+          "rmType": "DV_CODED_TEXT",
+          "nodeId": "",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour daytime average']/math_function",
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/math_function",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "math_function",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "code": {
+                "presentation": "BUTTONGROUP",
+                "columns": 2,
+                "disabled": false,
+                "hidden": false,
+                "readonly": false
+              }
+            }
+          },
+          "datasource": {
+            "force": false,
+            "source": "",
+            "bindings": {},
+            "pathParameters": {
+              "{codeSystem}": "openehr"
+            }
+          },
+          "localizedNames": {
+            "en": "math_function"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [
+                {
+                  "value": "146",
+                  "label": "mean",
+                  "localizedLabels": {
+                    "en": "mean"
+                  }
+                }
+              ],
+              "suffix": "code",
+              "type": "CODED_TEXT",
+              "terminology": "openehr",
+              "defaultValue": [
+                "%p%mean:::146%p%"
+              ]
+            }
+          ]
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "sleep_status",
+          "name": "Sleep status",
+          "localizedName": "Sleep status",
+          "rmType": "DV_CODED_TEXT",
+          "nodeId": "at1043",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour daytime average']/state[at0007]/items[at1043]/value",
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/sleep_status",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Sleep status-1",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "code": {
+                "presentation": "BUTTONGROUP",
+                "columns": 2,
+                "disabled": false,
+                "hidden": false,
+                "readonly": false
+              }
+            }
+          },
+          "datasource": {
+            "force": false,
+            "source": "",
+            "bindings": {},
+            "pathParameters": {
+              "{codeSystem}": ""
+            }
+          },
+          "localizedNames": {
+            "en": "Sleep status"
+          },
+          "localizedDescriptions": {
+            "en": "Sleep status - supports interpretation of 24 hour ambulatory blood pressure records."
+          },
+          "inputs": [
+            {
+              "list": [
+                {
+                  "value": "at1044",
+                  "label": "Awake",
+                  "localizedLabels": {
+                    "en": "Awake"
+                  },
+                  "localizedDescriptions": {
+                    "en": "The individual is fully conscious."
+                  }
+                }
+              ],
+              "suffix": "code",
+              "type": "CODED_TEXT",
+              "defaultValue": [
+                "%f%LIST:::099-00-tlvm%f%(%p%Awake:::at1044%p%)"
+              ]
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "width",
+          "name": "Width",
+          "rmType": "DV_DURATION",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour daytime average']/width",
+          "inContext": true,
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Width-awake",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width\",\"expressions\":[{\"id\":\"b13c90c1-3060-4c28-b0ba-d2aa4b6e4e2e\",\"statements\":[{\"fieldId\":\"generic-quantity-6751850\",\"condition\":{\"operator\":\"isvalid\",\"value\":{\"suffix\":\"magnitude\"}},\"id\":\"b1aa9f8c-6780-4479-8420-4e94ed2c4ec4\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width\",\"action\":\"set\",\"value\":{\"suffix\":\"hour\",\"hour\":\"%awake_duration_hours%\",\"value\":\"%awake_duration_hours%\"},\"id\":\"a1fed1a9-38c3-4d7b-9abb-3f564de25ce1\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"},{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width\",\"action\":\"set\",\"value\":{\"suffix\":\"minute\",\"minute\":\"%awake_duration_minutes%\",\"value\":\"%awake_duration_minutes%\"},\"id\":\"54e4236a-176f-4554-8d00-06a4103486ef\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"generic-quantity-6751850\",\"condition\":{\"operator\":\"isvalid\",\"value\":{\"suffix\":\"magnitude\"}},\"id\":\"b1aa9f8c-6780-4479-8420-4e94ed2c4ec4\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width\",\"action\":\"set\",\"value\":{\"suffix\":\"hour\",\"hour\":\"%awake_duration_hours%\",\"value\":\"%awake_duration_hours%\"},\"id\":\"a1fed1a9-38c3-4d7b-9abb-3f564de25ce1\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"},{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width\",\"action\":\"set\",\"value\":{\"suffix\":\"minute\",\"minute\":\"%awake_duration_minutes%\",\"value\":\"%awake_duration_minutes%\"},\"id\":\"54e4236a-176f-4554-8d00-06a4103486ef\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"7f5fe124-080a-4755-9cbd-cfaf54064536\",\"valid\":true}],\"events\":[{\"id\":\"6ca52e51-7f70-49cc-822c-1897563b4a33\",\"fieldId\":\"var-awake_duration_minutes\",\"type\":\"CHANGE\",\"valid\":true},{\"id\":\"6364f1cb-689b-4e96-a99c-9de2842e13a1\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\",\"valid\":true}]}]}",
+              "ehrFormScript": "\"/* Example:\\napi.addListener('outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/width', 'CHANGE', function(model) {\\n  var simpleValue = c;\\n  if (simpleValue === 'test') {\\n    api.hideFormElement('');\\n  }\\n}, {onInitialValueSet: true})\\n*/\\n\""
+            },
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "Width"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [],
+              "suffix": "year",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "month",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "day",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "week",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "hour",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "minute",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "second",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "time",
+          "name": "Time",
+          "rmType": "DV_DATE_TIME",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour daytime average']/time",
+          "inContext": true,
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/time",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Time-awake",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/time\",\"expressions\":[{\"id\":\"38765ef5-1972-4c89-8f83-73f59213198c\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"eb80fbfe-b2d7-4c91-8f80-fd3602bef0fd\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"02be545b-f96f-4f44-b3b3-d42e61fc40af\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"eb80fbfe-b2d7-4c91-8f80-fd3602bef0fd\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"02be545b-f96f-4f44-b3b3-d42e61fc40af\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"438ed02f-f46a-47e8-8b28-77eb58116e0f\",\"valid\":true}],\"events\":[{\"id\":\"87862e61-f524-4897-a749-461b030a6787\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"68adb610-ebbd-488e-82c6-33172a12f4e5\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "Time"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [],
+              "type": "DATETIME",
+              "validation": {
+                "range": {}
+              }
+            }
+          ]
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "rmType": "GENERIC_NOTIFICATION",
+          "max": 1,
+          "name": "Notification",
+          "id": "generic-notification-5540572",
+          "formId": "generic-notification-5540572",
+          "alias": "daytime-notification",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"generic-notification-5540572\",\"expressions\":[{\"id\":\"5796f20d-e579-4203-baf6-aa6d3990f55a\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/systolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"135\",\"label\":\"135\",\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"or\",\"target\":\"8985c7c9-033f-4a46-82fb-ea7b7b241015\"},\"id\":\"2089d7b0-35c2-43a9-89ea-cd2967f54fb5\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/diastolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"85\",\"label\":\"85\",\"suffix\":\"magnitude\"}},\"id\":\"8985c7c9-033f-4a46-82fb-ea7b7b241015\",\"valid\":true}],\"actions\":[{\"target\":\"generic-notification-5540572\",\"action\":\"show\",\"id\":\"d4e5d62a-e9f3-4fbe-9c71-039e4fabd099\",\"valid\":true,\"pureValueObject\":true}],\"otherwise\":[{\"target\":\"generic-notification-5540572\",\"action\":\"hide\",\"id\":\"1f20b4f0-4ffd-4287-aca9-9b961dba8c91\",\"valid\":true,\"pureValueObject\":true}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/systolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"135\",\"label\":\"135\",\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"or\",\"target\":\"8985c7c9-033f-4a46-82fb-ea7b7b241015\"},\"id\":\"2089d7b0-35c2-43a9-89ea-cd2967f54fb5\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_daytime_average/diastolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"85\",\"label\":\"85\",\"suffix\":\"magnitude\"}},\"id\":\"8985c7c9-033f-4a46-82fb-ea7b7b241015\",\"valid\":true}],\"actions\":[{\"target\":\"generic-notification-5540572\",\"action\":\"show\",\"id\":\"d4e5d62a-e9f3-4fbe-9c71-039e4fabd099\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"535b9118-368b-41cd-8f37-761d1332d98a\",\"valid\":true},{\"statements\":[],\"actions\":[{\"target\":\"generic-notification-5540572\",\"action\":\"hide\",\"id\":\"1f20b4f0-4ffd-4287-aca9-9b961dba8c91\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"2d17f40f-1c17-46ed-ba67-93b5eb1a2a6a\",\"valid\":true}],\"events\":[{\"id\":\"3b34c011-ace1-4c76-906c-f24400f8e2ef\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"2c08b865-89a3-406f-9166-ecd7627c1ac9\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "hidden": true,
+              "notificationType": "DRAFT",
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "<p><span style=\"color: rgb(0, 0, 0);\">Norm:‍ systolisch &lt; 135 mmHg; diastolisch &lt; 85 mmHg</span></p>"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-7264653",
+      "formId": "generic-layout_group-7264653",
+      "alias": "Group-5",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_7"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-5856754",
+      "formId": "generic-rich_text-5856754",
+      "alias": "Rich text-6",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p>Nachtmittelwert Blutdruck</p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "systolic",
+              "name": "Systolic",
+              "localizedName": "Systolic",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0004",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour nighttime average']/data[at0003]/items[at0004]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/systolic",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "night-syst-mean",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Systolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": "Peak systemic arterial blood pressure  - measured in systolic or contraction phase of the heart cycle."
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL",
+                  "validation": {
+                    "precision": {
+                      "minOp": ">=",
+                      "min": 0,
+                      "maxOp": "<=",
+                      "max": 0
+                    },
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<"
+                    }
+                  }
+                },
+                {
+                  "list": [
+                    {
+                      "value": "mm[Hg]",
+                      "label": "mm[Hg]",
+                      "localizedLabels": {
+                        "en": "mmHg"
+                      },
+                      "validation": {
+                        "precision": {
+                          "minOp": ">=",
+                          "min": 0,
+                          "maxOp": "<=",
+                          "max": 0
+                        },
+                        "range": {
+                          "min": 0,
+                          "minOp": ">=",
+                          "max": 1000,
+                          "maxOp": "<"
+                        }
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%mm[Hg]:::mm[Hg]%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "diastolic",
+              "name": "Diastolic",
+              "localizedName": "Diastolic",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0005",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour nighttime average']/data[at0003]/items[at0005]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/diastolic",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "night-diast-mean",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Diastolisch</p>"
+              },
+              "localizedDescriptions": {
+                "en": "Minimum systemic arterial blood pressure - measured in the diastolic or relaxation phase of the heart cycle."
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL",
+                  "validation": {
+                    "precision": {
+                      "minOp": ">=",
+                      "min": 0,
+                      "maxOp": "<=",
+                      "max": 0
+                    },
+                    "range": {
+                      "min": 0,
+                      "minOp": ">=",
+                      "max": 1000,
+                      "maxOp": "<"
+                    }
+                  }
+                },
+                {
+                  "list": [
+                    {
+                      "value": "mm[Hg]",
+                      "label": "mm[Hg]",
+                      "localizedLabels": {
+                        "en": "mmHg"
+                      },
+                      "validation": {
+                        "precision": {
+                          "minOp": ">=",
+                          "min": 0,
+                          "maxOp": "<=",
+                          "max": 0
+                        },
+                        "range": {
+                          "min": 0,
+                          "minOp": ">=",
+                          "max": 1000,
+                          "maxOp": "<"
+                        }
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%mm[Hg]:::mm[Hg]%p%"
+                  ]
+                }
+              ]
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-5389319",
+          "formId": "generic-layout_group-5389319",
+          "alias": "Group-11",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "math_function",
+          "rmType": "DV_CODED_TEXT",
+          "nodeId": "",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour nighttime average']/math_function",
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/math_function",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "math_function-1",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_7"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "code": {
+                "presentation": "BUTTONGROUP",
+                "columns": 2,
+                "disabled": false,
+                "hidden": false,
+                "readonly": false
+              }
+            }
+          },
+          "datasource": {
+            "force": false,
+            "source": "",
+            "bindings": {},
+            "pathParameters": {
+              "{codeSystem}": "openehr"
+            }
+          },
+          "localizedNames": {
+            "en": "math_function"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [
+                {
+                  "value": "146",
+                  "label": "mean",
+                  "localizedLabels": {
+                    "en": "mean"
+                  }
+                }
+              ],
+              "suffix": "code",
+              "type": "CODED_TEXT",
+              "terminology": "openehr",
+              "defaultValue": [
+                "%p%mean:::146%p%"
+              ]
+            }
+          ]
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "sleep_status",
+          "name": "Sleep status",
+          "localizedName": "Sleep status",
+          "rmType": "DV_CODED_TEXT",
+          "nodeId": "at1043",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour nighttime average']/state[at0007]/items[at1043]/value",
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/sleep_status",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Sleep status-2",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_7"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {
+              "code": {
+                "presentation": "BUTTONGROUP",
+                "columns": 2,
+                "disabled": false,
+                "hidden": false,
+                "readonly": false
+              }
+            }
+          },
+          "datasource": {
+            "force": false,
+            "source": "",
+            "bindings": {},
+            "pathParameters": {
+              "{codeSystem}": ""
+            }
+          },
+          "localizedNames": {
+            "en": "Sleep status"
+          },
+          "localizedDescriptions": {
+            "en": "Sleep status - supports interpretation of 24 hour ambulatory blood pressure records."
+          },
+          "inputs": [
+            {
+              "list": [
+                {
+                  "value": "at1045",
+                  "label": "Sleeping",
+                  "localizedLabels": {
+                    "en": "Sleeping"
+                  },
+                  "localizedDescriptions": {
+                    "en": "The individual is in the natural state of bodily rest."
+                  }
+                }
+              ],
+              "suffix": "code",
+              "type": "CODED_TEXT",
+              "defaultValue": [
+                "%f%LIST:::099-00-tlvm%f%(%p%Sleeping:::at1045%p%)"
+              ]
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "width",
+          "name": "Width",
+          "rmType": "DV_DURATION",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour nighttime average']/width",
+          "inContext": true,
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/width",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Width-asleep",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/width\",\"expressions\":[{\"id\":\"357db06e-edbf-4525-90ba-79cfb6636a4a\",\"statements\":[{\"fieldId\":\"var-asleep_duration_hours\",\"condition\":{\"operator\":\"isvalid\",\"value\":{}},\"id\":\"56313e23-07b5-418f-b7bd-6410796e0845\",\"valid\":false}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/width\",\"action\":\"set\",\"value\":{\"suffix\":\"hour\",\"hour\":\"%asleep_duration_hours%\",\"value\":\"%asleep_duration_hours%\"},\"id\":\"4198a956-75a5-4b83-b83b-13fb2afadcb7\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"},{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/width\",\"action\":\"set\",\"value\":{\"suffix\":\"minute\",\"minute\":\"%asleep_duration_minutes%\",\"value\":\"%asleep_duration_minutes%\"},\"id\":\"7b2ed1ff-09ab-40c0-a34e-bc865b29bbff\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"var-asleep_duration_hours\",\"condition\":{\"operator\":\"isvalid\",\"value\":{}},\"id\":\"56313e23-07b5-418f-b7bd-6410796e0845\",\"valid\":false}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/width\",\"action\":\"set\",\"value\":{\"suffix\":\"hour\",\"hour\":\"%asleep_duration_hours%\",\"value\":\"%asleep_duration_hours%\"},\"id\":\"4198a956-75a5-4b83-b83b-13fb2afadcb7\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"},{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/width\",\"action\":\"set\",\"value\":{\"suffix\":\"minute\",\"minute\":\"%asleep_duration_minutes%\",\"value\":\"%asleep_duration_minutes%\"},\"id\":\"7b2ed1ff-09ab-40c0-a34e-bc865b29bbff\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"3f209963-d52a-499d-928b-2715129ba28c\",\"valid\":true}],\"events\":[{\"id\":\"94323af6-db3a-4c22-b201-68632e76dac9\",\"fieldId\":\"var-asleep_duration_minutes\",\"type\":\"CHANGE\",\"valid\":true},{\"id\":\"7e5b6162-f8b3-47b2-b608-56d3ba1b53f8\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\",\"valid\":true}]}]}"
+            },
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_7"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "Width"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [],
+              "suffix": "year",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "month",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "day",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "week",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "hour",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "minute",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            },
+            {
+              "list": [],
+              "suffix": "second",
+              "type": "INTEGER",
+              "validation": {
+                "range": {
+                  "min": 0,
+                  "minOp": ">="
+                }
+              }
+            }
+          ]
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "id": "time",
+          "name": "Time",
+          "rmType": "DV_DATE_TIME",
+          "max": 1,
+          "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/data[at0001]/events[at0006,'24 hour nighttime average']/time",
+          "inContext": true,
+          "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/time",
+          "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+          "alias": "Time-asleep",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/time\",\"expressions\":[{\"id\":\"a1c5bef2-f91e-481e-8bea-cdd3a16970f7\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"d26b6ff2-d635-4c35-935e-d5ed402b1b3b\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"ae7df6c0-cc40-4f2f-bfaf-2d56a4fd23d4\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time\",\"condition\":{\"operator\":\"isvalid\"},\"id\":\"d26b6ff2-d635-4c35-935e-d5ed402b1b3b\",\"valid\":true}],\"actions\":[{\"target\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/time\",\"action\":\"set\",\"value\":{\"value\":\"%%outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_average/time%%\"},\"id\":\"ae7df6c0-cc40-4f2f-bfaf-2d56a4fd23d4\",\"valid\":true,\"pureValueObject\":true,\"executionType\":\"expression\"}],\"id\":\"ce7d0bba-e42b-4d33-ac2e-142b0a6b4156\",\"valid\":true}],\"events\":[{\"id\":\"9f2ad702-c9e7-4c83-9e10-1a280b5d8b97\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"6696f324-f08c-4193-9756-4e5131d254e2\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "hidden": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_7"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "Time"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": [
+            {
+              "list": [],
+              "type": "DATETIME",
+              "validation": {
+                "range": {}
+              }
+            }
+          ]
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "rmType": "GENERIC_NOTIFICATION",
+          "max": 1,
+          "name": "Notification",
+          "id": "generic-notification-1831023",
+          "formId": "generic-notification-1831023",
+          "alias": "nighttime-notification",
+          "nodeId": "generic-notification-1831023",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {
+              "conditions": "{\"formId\":\"generic-notification-1831023\",\"expressions\":[{\"id\":\"c81ca377-63eb-4faa-877a-61b4dd3c744b\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/systolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"120\",\"label\":\"120\",\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"or\",\"target\":\"e19d146b-fc4e-48f8-aa55-e8784174f8a3\"},\"id\":\"d65651b0-6f9e-42a0-ba5a-78c25651261c\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/diastolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"70\",\"label\":\"70\",\"suffix\":\"magnitude\"}},\"id\":\"e19d146b-fc4e-48f8-aa55-e8784174f8a3\",\"valid\":true}],\"actions\":[{\"target\":\"generic-notification-1831023\",\"action\":\"show\",\"id\":\"5178799d-0d23-4775-a4a8-9f255de2c85c\",\"valid\":true,\"pureValueObject\":true}],\"otherwise\":[{\"target\":\"generic-notification-1831023\",\"action\":\"hide\",\"id\":\"d46543d2-999f-40b2-9f03-f7c408b167ce\",\"valid\":true,\"pureValueObject\":true}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/systolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"120\",\"label\":\"120\",\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"or\",\"target\":\"e19d146b-fc4e-48f8-aa55-e8784174f8a3\"},\"id\":\"d65651b0-6f9e-42a0-ba5a-78c25651261c\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/a24_hour_nighttime_average/diastolic\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"70\",\"label\":\"70\",\"suffix\":\"magnitude\"}},\"id\":\"e19d146b-fc4e-48f8-aa55-e8784174f8a3\",\"valid\":true}],\"actions\":[{\"target\":\"generic-notification-1831023\",\"action\":\"show\",\"id\":\"5178799d-0d23-4775-a4a8-9f255de2c85c\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"a5b615c3-7087-42bc-ba0d-b3bb83e04071\",\"valid\":true},{\"statements\":[],\"actions\":[{\"target\":\"generic-notification-1831023\",\"action\":\"hide\",\"id\":\"d46543d2-999f-40b2-9f03-f7c408b167ce\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"79f5c120-1d7f-4a4d-9eba-133770e2cccc\",\"valid\":true}],\"events\":[{\"id\":\"32a2e562-2060-499b-8b15-22b2f2362209\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"6a199dab-3d05-4f1d-8163-cddd93f8fbfa\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+            },
+            "advanced": {
+              "hidden": true,
+              "notificationType": "DRAFT",
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "<p><span style=\"color: rgb(0, 0, 0);\">Norm:‍ systolisch &lt; 120 mmHg; diastolisch &lt; 70 mmHg</span></p>"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "rmType": "GENERIC_SPACER",
+          "max": 1,
+          "name": "Spacer",
+          "id": "generic-spacer-9964207",
+          "formId": "generic-spacer-9964207",
+          "alias": "Spacer-3",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "systolic_dip",
+              "name": "Systolic dip",
+              "localizedName": "Systolic dip",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0002",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.blood_pressure.v2]/protocol[at0011]/items[openEHR-EHR-CLUSTER.nightly_dipping.v0]/items[at0002]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/nightly_blood_pressure_dipping/systolic_dip",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "dipping",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Nächtliches Dipping</p>"
+              },
+              "localizedDescriptions": {
+                "en": ""
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "%",
+                      "label": "%",
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%%:::%%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "rmType": "GENERIC_NOTIFICATION",
+              "max": 1,
+              "name": "Notification",
+              "id": "generic-notification-5786029",
+              "formId": "generic-notification-5786029",
+              "alias": "dipping-notification",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {
+                  "conditions": "{\"formId\":\"generic-notification-5786029\",\"expressions\":[{\"id\":\"3a4db564-5a85-4f13-88da-755d32f5a0d6\",\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/nightly_blood_pressure_dipping/systolic_dip\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"20\",\"label\":\"20\",\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"or\",\"target\":\"67040bee-f8ce-483c-9c3c-c8651273e86d\"},\"id\":\"c6628e93-f64e-4365-a8ca-7680929340f3\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/nightly_blood_pressure_dipping/systolic_dip\",\"condition\":{\"operator\":\"le\",\"value\":{\"magnitude\":\"10\",\"label\":\"10\",\"suffix\":\"magnitude\"}},\"id\":\"67040bee-f8ce-483c-9c3c-c8651273e86d\",\"valid\":true}],\"actions\":[{\"target\":\"generic-notification-5786029\",\"action\":\"show\",\"id\":\"3c99a3bc-bdd0-4db9-9c75-b4c37c2a3629\",\"valid\":true,\"pureValueObject\":true}],\"otherwise\":[{\"target\":\"generic-notification-5786029\",\"action\":\"hide\",\"id\":\"49524613-7949-494b-8647-8900ea8d5cd9\",\"valid\":true,\"pureValueObject\":true}],\"cases\":[{\"statements\":[{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/nightly_blood_pressure_dipping/systolic_dip\",\"condition\":{\"operator\":\"ge\",\"value\":{\"magnitude\":\"20\",\"label\":\"20\",\"suffix\":\"magnitude\"}},\"relation\":{\"operator\":\"or\",\"target\":\"67040bee-f8ce-483c-9c3c-c8651273e86d\"},\"id\":\"c6628e93-f64e-4365-a8ca-7680929340f3\",\"valid\":true},{\"fieldId\":\"outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/blood_pressure/nightly_blood_pressure_dipping/systolic_dip\",\"condition\":{\"operator\":\"le\",\"value\":{\"magnitude\":\"10\",\"label\":\"10\",\"suffix\":\"magnitude\"}},\"id\":\"67040bee-f8ce-483c-9c3c-c8651273e86d\",\"valid\":true}],\"actions\":[{\"target\":\"generic-notification-5786029\",\"action\":\"show\",\"id\":\"3c99a3bc-bdd0-4db9-9c75-b4c37c2a3629\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"483db624-dbe9-4bb9-9e03-fd858a70e8e7\",\"valid\":true},{\"statements\":[],\"actions\":[{\"target\":\"generic-notification-5786029\",\"action\":\"hide\",\"id\":\"49524613-7949-494b-8647-8900ea8d5cd9\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"b0c30756-f246-4121-8599-15520f423a2b\",\"valid\":true}],\"events\":[{\"id\":\"ee71a6c3-b89a-4c34-8ae4-cd3adafd026b\",\"fieldId\":\"ALL_CASES\",\"type\":\"CHANGE\"},{\"id\":\"96be92e7-fd08-42cd-9ddc-3df6fa0f054d\",\"fieldId\":\"form_root\",\"type\":\"ON_INIT\"}]}]}"
+                },
+                "advanced": {
+                  "hidden": true,
+                  "notificationType": "DRAFT",
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Norm: 10 % &lt; Dipping &lt; 20 %</p>"
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-2693497",
+          "formId": "generic-layout_group-2693497",
+          "alias": "Group-15",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-8647652",
+      "formId": "generic-layout_group-8647652",
+      "alias": "Group-6",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_SPACER",
+      "max": 1,
+      "name": "Spacer",
+      "id": "generic-spacer-1678891",
+      "formId": "generic-spacer-1678891",
+      "alias": "Spacer-1",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-5177860",
+      "formId": "generic-rich_text-5177860",
+      "alias": "Rich text-8",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<h3>Pulswellenanalyse</h3>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_BUTTON",
+      "max": 1,
+      "name": "Button",
+      "id": "generic-button-8204170",
+      "formId": "generic-button-8204170",
+      "alias": "Button-1",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {
+          "conditions": "{\"formId\":\"generic-button-8204170\",\"expressions\":[{\"id\":\"1123aa86-7574-4a62-a155-b4478d46fc25\",\"statements\":[{\"fieldId\":\"generic-button-8204170\",\"condition\":{\"operator\":\"click\"},\"id\":\"d9a96938-95f4-4fe6-8760-7fdea03086f0\",\"valid\":true}],\"actions\":[{\"target\":\"generic-layout_group-2605866\",\"action\":\"toggle\",\"id\":\"b9180645-4722-4a12-a4c3-93b44be658a8\",\"valid\":true,\"pureValueObject\":true}],\"cases\":[{\"statements\":[],\"actions\":[{\"target\":\"generic-layout_group-2605866\",\"action\":\"toggle\",\"id\":\"b9180645-4722-4a12-a4c3-93b44be658a8\",\"valid\":true,\"pureValueObject\":true}],\"id\":\"d0fa6924-3589-4843-8584-bf12e87dc292\",\"valid\":true}],\"events\":[{\"id\":\"4ad5af52-fe0f-4c5a-848f-0eb363d5ad82\",\"fieldId\":\"generic-button-8204170\",\"type\":\"CLICK\",\"valid\":true}]}]}"
+        },
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "PWA durchgeführt"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 1,
+      "localizedNamesIncludeVariables": false,
+      "children": [
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "rmType": "GENERIC_RICH_TEXT",
+          "max": 1,
+          "name": "Rich text",
+          "id": "generic-rich_text-5511017",
+          "formId": "generic-rich_text-5511017",
+          "alias": "Rich text-9",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {
+              "overrideLabel": true
+            },
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_12"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {}
+          },
+          "localizedNames": {
+            "en": "<p>Zentraler Blutdruck Mittelwert</p>"
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 1,
+              "localizedNamesIncludeVariables": false,
+              "children": [
+                {
+                  "min": 0,
+                  "localizedNamesIncludeVariables": false,
+                  "children": [],
+                  "id": "central_systolic_blood_pressure",
+                  "name": "Central systolic blood pressure",
+                  "localizedName": "Central systolic blood pressure",
+                  "rmType": "DV_QUANTITY",
+                  "nodeId": "at0007",
+                  "max": 1,
+                  "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/protocol[at0010]/items[openEHR-EHR-CLUSTER.pulse_wave_analysis.v0]/items[at0007]/value",
+                  "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/central_systolic_blood_pressure",
+                  "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+                  "alias": "Systolisch-2",
+                  "viewConfig": {
+                    "tags": [],
+                    "annotations": {},
+                    "advanced": {
+                      "overrideLabel": true
+                    },
+                    "size": {
+                      "label": "INHERIT",
+                      "element": "INHERIT"
+                    },
+                    "layout": {
+                      "label": {
+                        "align": "inherit"
+                      },
+                      "field": {
+                        "align": "inherit"
+                      }
+                    },
+                    "label": {}
+                  },
+                  "localizedNames": {
+                    "en": "<p>Systolisch</p>"
+                  },
+                  "localizedDescriptions": {
+                    "en": "Derived from the analysis of the pulse wave. Since it's not an actual blood pressure measurement and just an approximation derived from the pulse wave analysis, it stays in the cluster of the pulse wave analysis."
+                  },
+                  "inputs": [
+                    {
+                      "list": [],
+                      "suffix": "magnitude",
+                      "type": "DECIMAL"
+                    },
+                    {
+                      "list": [
+                        {
+                          "value": "mm[Hg]",
+                          "label": "mm[Hg]",
+                          "localizedLabels": {
+                            "en": "mmHg"
+                          },
+                          "validation": {
+                            "range": {}
+                          }
+                        }
+                      ],
+                      "suffix": "unit",
+                      "type": "CODED_TEXT",
+                      "defaultValue": [
+                        "%p%mm[Hg]:::mm[Hg]%p%"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "min": 0,
+                  "localizedNamesIncludeVariables": false,
+                  "children": [],
+                  "id": "central_diastolic_blood_pressure",
+                  "name": "Central diastolic blood pressure",
+                  "localizedName": "Central diastolic blood pressure",
+                  "rmType": "DV_QUANTITY",
+                  "nodeId": "at0006",
+                  "max": 1,
+                  "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/protocol[at0010]/items[openEHR-EHR-CLUSTER.pulse_wave_analysis.v0]/items[at0006]/value",
+                  "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/central_diastolic_blood_pressure",
+                  "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+                  "alias": "Diastolisch-3",
+                  "viewConfig": {
+                    "tags": [],
+                    "annotations": {},
+                    "advanced": {
+                      "overrideLabel": true
+                    },
+                    "size": {
+                      "label": "INHERIT",
+                      "element": "INHERIT"
+                    },
+                    "layout": {
+                      "label": {
+                        "align": "inherit"
+                      },
+                      "field": {
+                        "align": "inherit"
+                      }
+                    },
+                    "label": {}
+                  },
+                  "localizedNames": {
+                    "en": "<p>Diastolisch</p>"
+                  },
+                  "localizedDescriptions": {
+                    "en": "Derived from the analysis of the pulse wave. Since it's not an actual blood pressure measurement and just an approximation derived from the pulse wave analysis, it stays in the cluster of the pulse wave analysis."
+                  },
+                  "inputs": [
+                    {
+                      "list": [],
+                      "suffix": "magnitude",
+                      "type": "DECIMAL"
+                    },
+                    {
+                      "list": [
+                        {
+                          "value": "mm[Hg]",
+                          "label": "mm[Hg]",
+                          "localizedLabels": {
+                            "en": "mmHg"
+                          },
+                          "validation": {
+                            "range": {}
+                          }
+                        }
+                      ],
+                      "suffix": "unit",
+                      "type": "CODED_TEXT",
+                      "defaultValue": [
+                        "%p%mm[Hg]:::mm[Hg]%p%"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "rmType": "GENERIC_LAYOUT_GROUP",
+              "max": 1,
+              "name": "Group",
+              "id": "generic-layout_group-1359628",
+              "formId": "generic-layout_group-1359628",
+              "alias": "Group-12",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {},
+                "size": {
+                  "label": "INHERIT",
+                  "element": "COLUMN_12"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {},
+                "field": {},
+                "wrapBodyCellText": true,
+                "cellContentOverflow": "WRAP",
+                "cellContentAlignment": "MIDDLE",
+                "errorHandling": {}
+              },
+              "localizedDescriptions": {
+                "en": null
+              },
+              "inputs": []
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-8400949",
+          "formId": "generic-layout_group-8400949",
+          "alias": "Group-2",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "COLUMN_9"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 0,
+          "localizedNamesIncludeVariables": false,
+          "children": [],
+          "rmType": "GENERIC_SPACER",
+          "max": 1,
+          "name": "Spacer",
+          "id": "generic-spacer-1225542",
+          "formId": "generic-spacer-1225542",
+          "alias": "Spacer-2",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        },
+        {
+          "min": 1,
+          "localizedNamesIncludeVariables": false,
+          "children": [
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "augmentation_index_at_heart_rate_75_per_minute",
+              "name": "Augmentation index at heart rate 75 per minute",
+              "localizedName": "Augmentation index at heart rate 75 per minute",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0008",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/protocol[at0010]/items[openEHR-EHR-CLUSTER.pulse_wave_analysis.v0]/items[at0008]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/augmentation_index_at_heart_rate_75_per_minute",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "Alx@75 Mittelwert",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Alx@75 Mittelwert</p>"
+              },
+              "localizedDescriptions": {
+                "en": ""
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "%",
+                      "label": "%",
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%%:::%%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "cardiac_output",
+              "name": "Cardiac output",
+              "localizedName": "Cardiac output",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0002",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/protocol[at0010]/items[openEHR-EHR-CLUSTER.pulse_wave_analysis.v0]/items[at0002]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/cardiac_output",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "HMV Mittelwert",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>HMV Mittelwert</p>"
+              },
+              "localizedDescriptions": {
+                "en": "Blood flow in liters (or litres) per minute"
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "l/m",
+                      "label": "l/m",
+                      "localizedLabels": {
+                        "en": "l/min"
+                      },
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%l/m:::l/m%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "peripheral_resistance",
+              "name": "Peripheral resistance",
+              "localizedName": "Peripheral resistance",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0003",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/protocol[at0010]/items[openEHR-EHR-CLUSTER.pulse_wave_analysis.v0]/items[at0003]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/peripheral_resistance",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "Peripherer Widerstand",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Peripherer Widerstand</p>"
+              },
+              "localizedDescriptions": {
+                "en": "s*mmHg/mL"
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "s*mmHg/mL",
+                      "label": "s*mmHg/mL",
+                      "localizedLabels": {
+                        "en": "s*mmHg/mL"
+                      },
+                      "custom": true,
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%s*mmHg/mL:::s*mmHg/mL%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "reflection_coefficient",
+              "name": "Reflection coefficient",
+              "localizedName": "Reflection coefficient",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0009",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/protocol[at0010]/items[openEHR-EHR-CLUSTER.pulse_wave_analysis.v0]/items[at0009]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/reflection_coefficient",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "Reflektionskoeffizient",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Reflektionskoeffizient</p>"
+              },
+              "localizedDescriptions": {
+                "en": ""
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "%",
+                      "label": "%",
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%%:::%%p%"
+                  ]
+                }
+              ]
+            },
+            {
+              "min": 0,
+              "localizedNamesIncludeVariables": false,
+              "children": [],
+              "id": "pulse_wave_velocity",
+              "name": "Pulse wave velocity",
+              "localizedName": "Pulse wave velocity",
+              "rmType": "DV_QUANTITY",
+              "nodeId": "at0004",
+              "max": 1,
+              "aqlPath": "/content[openEHR-EHR-SECTION.adhoc.v1,'Blood pressure and pulse measurement']/items[openEHR-EHR-OBSERVATION.pulse.v2]/protocol[at0010]/items[openEHR-EHR-CLUSTER.pulse_wave_analysis.v0]/items[at0004]/value",
+              "formId": "outpatient-24h-blood-pressure-monitoring/blood_pressure_and_pulse_measurement/pulse_heart_beat/pulse_wave_analysis/pulse_wave_velocity",
+              "templateInstance": "4f4f8cff-67e8-408e-b310-d4337bf81abb",
+              "alias": "Pulswellengeschwindigkeit Mittelwert",
+              "viewConfig": {
+                "tags": [],
+                "annotations": {},
+                "advanced": {
+                  "overrideLabel": true
+                },
+                "size": {
+                  "label": "INHERIT",
+                  "element": "INHERIT"
+                },
+                "layout": {
+                  "label": {
+                    "align": "inherit"
+                  },
+                  "field": {
+                    "align": "inherit"
+                  }
+                },
+                "label": {}
+              },
+              "localizedNames": {
+                "en": "<p>Pulswellengeschwindigkeit Mittelwert</p>"
+              },
+              "localizedDescriptions": {
+                "en": ""
+              },
+              "inputs": [
+                {
+                  "list": [],
+                  "suffix": "magnitude",
+                  "type": "DECIMAL"
+                },
+                {
+                  "list": [
+                    {
+                      "value": "m/s",
+                      "label": "m/s",
+                      "validation": {
+                        "range": {}
+                      }
+                    }
+                  ],
+                  "suffix": "unit",
+                  "type": "CODED_TEXT",
+                  "defaultValue": [
+                    "%p%m/s:::m/s%p%"
+                  ]
+                }
+              ]
+            }
+          ],
+          "rmType": "GENERIC_LAYOUT_GROUP",
+          "max": 1,
+          "name": "Group",
+          "id": "generic-layout_group-5247211",
+          "formId": "generic-layout_group-5247211",
+          "alias": "Group-13",
+          "viewConfig": {
+            "tags": [],
+            "annotations": {},
+            "advanced": {},
+            "size": {
+              "label": "INHERIT",
+              "element": "INHERIT"
+            },
+            "layout": {
+              "label": {
+                "align": "inherit"
+              },
+              "field": {
+                "align": "inherit"
+              }
+            },
+            "label": {},
+            "field": {},
+            "wrapBodyCellText": true,
+            "cellContentOverflow": "WRAP",
+            "cellContentAlignment": "MIDDLE",
+            "errorHandling": {}
+          },
+          "localizedDescriptions": {
+            "en": null
+          },
+          "inputs": []
+        }
+      ],
+      "rmType": "GENERIC_LAYOUT_GROUP",
+      "max": 1,
+      "name": "Group",
+      "id": "generic-layout_group-2605866",
+      "formId": "generic-layout_group-2605866",
+      "alias": "PWA-Group",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "hidden": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {},
+        "wrapBodyCellText": true,
+        "cellContentOverflow": "WRAP",
+        "cellContentAlignment": "MIDDLE",
+        "errorHandling": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_SPACER",
+      "max": 1,
+      "name": "Spacer",
+      "id": "generic-spacer-4396796",
+      "formId": "generic-spacer-4396796",
+      "alias": "Spacer",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {},
+        "size": {
+          "label": "INHERIT",
+          "element": "INHERIT"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {},
+        "field": {}
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    },
+    {
+      "min": 0,
+      "localizedNamesIncludeVariables": false,
+      "children": [],
+      "rmType": "GENERIC_RICH_TEXT",
+      "max": 1,
+      "name": "Rich text",
+      "id": "generic-rich_text-2146232",
+      "formId": "generic-rich_text-2146232",
+      "alias": "Rich text-11",
+      "viewConfig": {
+        "tags": [],
+        "annotations": {},
+        "advanced": {
+          "overrideLabel": true
+        },
+        "size": {
+          "label": "INHERIT",
+          "element": "COLUMN_12"
+        },
+        "layout": {
+          "label": {
+            "align": "inherit"
+          },
+          "field": {
+            "align": "inherit"
+          }
+        },
+        "label": {}
+      },
+      "localizedNames": {
+        "en": "<p><sub>Normwerte gemäss </sub><sub style=\"color: rgb(42, 42, 42);\">2024 Guidelines for the management of elevated blood pressure and hypertension der European Society of Cardiology, 30 August 2024</sub></p>"
+      },
+      "localizedDescriptions": {
+        "en": null
+      },
+      "inputs": []
+    }
+  ],
+  "docType": "FORM",
+  "formId": "form_root",
+  "name": "form_root",
+  "rmType": "FORM_DEFINITION",
+  "uuid": "c82bdbe0-8b24-44fa-963b-4c601b3905d6",
+  "fbVersion": "3.11.5",
+  "initialFbVersion": "3.11.1",
+  "defaultLanguage": "en",
+  "viewConfig": {
+    "tags": [],
+    "annotations": {},
+    "advanced": {},
+    "size": {
+      "label": "INHERIT",
+      "element": "COLUMN_12"
+    },
+    "layout": {
+      "label": {
+        "align": "top"
+      },
+      "field": {
+        "align": "inherit"
+      }
+    },
+    "label": {}
+  },
+  "localizedNames": {
+    "en": "form_root"
+  },
+  "templates": [
+    {
+      "templateId": "outpatient-24h-blood-pressure-monitoring",
+      "instance": "4f4f8cff-67e8-408e-b310-d4337bf81abb"
+    }
+  ]
+}

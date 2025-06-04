@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1cf8d383-25d3-496f-a213-e8303984fe7a",
+    "name": "24h-Blutdruck & PWA erfassen",
+    "firstPage": true,
+    "hideInPresentationMode": false,
+    "docType": "FORM",
+    "valid": true
+  },
+  {
+    "id": "3bb60845-b84b-4610-83e3-7e7235bdd0a6",
+    "name": "Personendaten",
+    "firstPage": false,
+    "hideInPresentationMode": false,
+    "docType": "FORM",
+    "valid": true
+  },
+  {
+    "id": "c9545730-761b-45cb-adc4-14852aa5c005",
+    "name": "Beurteilung",
+    "firstPage": false,
+    "hideInPresentationMode": false,
+    "docType": "FORM",
+    "valid": true
+  },
+  {
+    "id": "0be63b54-37e6-4551-a28f-a5a1b0622060",
+    "name": "Verlauf",
+    "firstPage": false,
+    "hideInPresentationMode": false,
+    "docType": "FORM",
+    "valid": true
+  }
+]
