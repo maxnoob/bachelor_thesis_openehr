@@ -17,6 +17,7 @@ The prototype was developed in collaboration with the University Hospital Basel 
 `/prototype`: Contains the main prototype implementation as exported from Better Studio.  
 `/template-exports`: Contains the exported templates from the Archetype Designer along with the needed archetypes.  
 `/archetypes-ckm-bulk-export`: Contains a bulk export of archetypes from the Clinical Knowledge Manager (CKM) that were used in the prototype.  
+`/postman`: Contains a Postman collection for interacting with the EHRbase REST API which also helps to learn how openEHR works.
 
 
 ---
