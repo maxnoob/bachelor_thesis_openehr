@@ -1,0 +1,40 @@
+{
+  "modelVersion" : 1,
+  "sources" : [ {
+    "sourceType" : "repository",
+    "id" : "openehr--dmm",
+    "user" : "67117127@github",
+    "repositoryId" : "openehr--dmm"
+  } ],
+  "entries" : [ {
+    "path" : "Templates/outpatient-service-request.t.json",
+    "type" : "template",
+    "id" : "outpatient-service-request",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-30T20:49:52.101Z",
+    "dependsOn" : [ {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-INSTRUCTION.service_request.v1"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-COMPOSITION.request.v1"
+    } ]
+  }, {
+    "path" : "Templates/outpatient-service-request.opt",
+    "type" : "opt",
+    "id" : "outpatient-service-request",
+    "lastModified" : "2025-03-30T20:49:52.101Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-INSTRUCTION.service_request.v1.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-INSTRUCTION.service_request.v1",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:47.779Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-COMPOSITION.request.v1.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-COMPOSITION.request.v1",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:30.378Z"
+  } ]
+}

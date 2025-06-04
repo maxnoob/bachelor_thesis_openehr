@@ -1,0 +1,148 @@
+{
+  "modelVersion" : 1,
+  "sources" : [ {
+    "sourceType" : "repository",
+    "id" : "openehr--dmm",
+    "user" : "67117127@github",
+    "repositoryId" : "openehr--dmm"
+  } ],
+  "entries" : [ {
+    "path" : "Templates/outpatient-24h-blood-pressure-monitoring.v0.t.json",
+    "type" : "template",
+    "id" : "outpatient-24h-blood-pressure-monitoring.v0",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-06-02T20:04:59.374Z",
+    "dependsOn" : [ {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-OBSERVATION.blood_pressure.v2"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-CLUSTER.device.v1"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-COMPOSITION.encounter.v1"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-EVALUATION.reason_for_encounter.v1"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-CLUSTER.nightly_dipping.v0"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-OBSERVATION.pulse.v2"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-OBSERVATION.body_weight.v2"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-OBSERVATION.body_surface_area.v1"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-CLUSTER.count_of_blood_pressure_measurements.v0"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-OBSERVATION.age_assertion.v1"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-OBSERVATION.body_mass_index.v2"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-CLUSTER.pulse_wave_analysis.v0"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-SECTION.adhoc.v1"
+    }, {
+      "type" : "archetype",
+      "reference" : "openEHR-EHR-OBSERVATION.height.v2"
+    } ]
+  }, {
+    "path" : "Templates/outpatient-24h-blood-pressure-monitoring.v0.opt",
+    "type" : "opt",
+    "id" : "outpatient-24h-blood-pressure-monitoring.v0",
+    "lastModified" : "2025-06-02T20:04:59.374Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-OBSERVATION.blood_pressure.v2.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-OBSERVATION.blood_pressure.v2",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:51.787Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-CLUSTER.device.v1.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-CLUSTER.device.v1",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:11.910Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-COMPOSITION.encounter.v1.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:29.382Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-EVALUATION.reason_for_encounter.v1.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-EVALUATION.reason_for_encounter.v1",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:38.387Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-CLUSTER.nightly_dipping.v0.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-CLUSTER.nightly_dipping.v0",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-30T20:01:45.169Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-OBSERVATION.pulse.v2.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-OBSERVATION.pulse.v2",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:38:09.779Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-OBSERVATION.body_weight.v2.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-OBSERVATION.body_weight.v2",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:51.787Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-OBSERVATION.body_surface_area.v1.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-OBSERVATION.body_surface_area.v1",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:51.787Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-CLUSTER.count_of_blood_pressure_measurements.v0.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-CLUSTER.count_of_blood_pressure_measurements.v0",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-20T21:34:20.305Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-OBSERVATION.age_assertion.v1.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-OBSERVATION.age_assertion.v1",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:49.751Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-OBSERVATION.body_mass_index.v2.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-OBSERVATION.body_mass_index.v2",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:37:51.787Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-CLUSTER.pulse_wave_analysis.v0.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-CLUSTER.pulse_wave_analysis.v0",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-30T20:46:38.022Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-SECTION.adhoc.v1.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-SECTION.adhoc.v1",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:38:14.819Z"
+  }, {
+    "path" : "Archetypes/openEHR-EHR-OBSERVATION.height.v2.adl",
+    "type" : "archetype",
+    "id" : "openEHR-EHR-OBSERVATION.height.v2",
+    "sourceId" : "openehr--dmm",
+    "lastModified" : "2025-03-16T14:38:03.635Z"
+  } ]
+}
